@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: ParentCoordinator {
     
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators: [ChildCoordinator] = []
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -18,7 +18,10 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let splashCoordinator = SplashCoordinator(navigationController: self.navigationController)
+        let splashCoordinator = SplashCoordinator(
+            parentCoordinator: self,
+            navigationController: self.navigationController
+        )
         self.childCoordinators.append(splashCoordinator)
         splashCoordinator.start()
     }

@@ -16,6 +16,7 @@
 		E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DD286DB0780071F7AC /* Coordinator.swift */; };
 		E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */; };
 		E820B2E4286DC4270071F7AC /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */; };
+		E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */; };
 		E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E6286DAA3A0009311F /* AppDelegate.swift */; };
 		E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */; };
 		E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */; };
@@ -57,6 +58,7 @@
 		E820B2DD286DB0780071F7AC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
 		E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
+		E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerCoordinator.swift; sourceTree = "<group>"; };
 		E87CB3E3286DAA3A0009311F /* MusicPlayerSample-Programmers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayerSample-Programmers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB3E6286DAA3A0009311F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +127,8 @@
 		E820B2CE286DAF010071F7AC /* MusicPlayerScene */ = {
 			isa = PBXGroup;
 			children = (
-				E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */,
+				E820B2E6286DF24D0071F7AC /* Coordinator */,
+				E820B2E5286DF2460071F7AC /* ViewController */,
 			);
 			path = MusicPlayerScene;
 			sourceTree = "<group>";
@@ -179,6 +182,22 @@
 				E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */,
 			);
 			path = CoordinatorProtocols;
+			sourceTree = "<group>";
+		};
+		E820B2E5286DF2460071F7AC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E820B2E6286DF24D0071F7AC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E87CB3DA286DAA3A0009311F = {
@@ -497,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */,
+				E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */,
 				E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */,
 				E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */,
 				E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */,
