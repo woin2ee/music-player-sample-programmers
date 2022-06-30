@@ -43,7 +43,7 @@
 		E87CB3ED286DAA3A0009311F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E87CB3EF286DAA3C0009311F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87CB3F2286DAA3C0009311F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E87CB3F4286DAA3C0009311F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E87CB3F4286DAA3C0009311F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "MusicPlayerSample-Programmers/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
 		E87CB3F9286DAA3C0009311F /* MusicPlayerSample-ProgrammersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MusicPlayerSample-ProgrammersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB3FD286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersTests.swift; sourceTree = "<group>"; };
 		E87CB403286DAA3C0009311F /* MusicPlayerSample-ProgrammersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MusicPlayerSample-ProgrammersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,13 +99,11 @@
 		E87CB3E5286DAA3A0009311F /* MusicPlayerSample-Programmers */ = {
 			isa = PBXGroup;
 			children = (
-				E87CB3E6286DAA3A0009311F /* AppDelegate.swift */,
-				E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */,
+				E87CB418286DAA620009311F /* Resources */,
+				E87CB417286DAA540009311F /* Application */,
+				E87CB416286DAA520009311F /* Presentation */,
 				E87CB3EA286DAA3A0009311F /* ViewController.swift */,
 				E87CB3EC286DAA3A0009311F /* Main.storyboard */,
-				E87CB3EF286DAA3C0009311F /* Assets.xcassets */,
-				E87CB3F1286DAA3C0009311F /* LaunchScreen.storyboard */,
-				E87CB3F4286DAA3C0009311F /* Info.plist */,
 			);
 			path = "MusicPlayerSample-Programmers";
 			sourceTree = "<group>";
@@ -125,6 +123,32 @@
 				E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */,
 			);
 			path = "MusicPlayerSample-ProgrammersUITests";
+			sourceTree = "<group>";
+		};
+		E87CB416286DAA520009311F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E87CB417286DAA540009311F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E87CB3E6286DAA3A0009311F /* AppDelegate.swift */,
+				E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E87CB418286DAA620009311F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E87CB3EF286DAA3C0009311F /* Assets.xcassets */,
+				E87CB3F1286DAA3C0009311F /* LaunchScreen.storyboard */,
+				E87CB3F4286DAA3C0009311F /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -439,10 +463,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2AVC8X7323;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MusicPlayerSample-Programmers/Info.plist";
+				INFOPLIST_FILE = "MusicPlayerSample-Programmers/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,7 +479,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,10 +492,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2AVC8X7323;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MusicPlayerSample-Programmers/Info.plist";
+				INFOPLIST_FILE = "MusicPlayerSample-Programmers/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,7 +508,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
