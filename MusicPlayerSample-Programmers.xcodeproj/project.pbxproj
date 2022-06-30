@@ -14,6 +14,8 @@
 		E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2D8286DB03E0071F7AC /* SplashCoordinator.swift */; };
 		E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DA286DB0520071F7AC /* AppCoordinator.swift */; };
 		E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DD286DB0780071F7AC /* Coordinator.swift */; };
+		E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */; };
+		E820B2E4286DC4270071F7AC /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */; };
 		E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E6286DAA3A0009311F /* AppDelegate.swift */; };
 		E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */; };
 		E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */; };
@@ -53,6 +55,8 @@
 		E820B2D8286DB03E0071F7AC /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DA286DB0520071F7AC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DD286DB0780071F7AC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
+		E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
 		E87CB3E3286DAA3A0009311F /* MusicPlayerSample-Programmers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayerSample-Programmers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB3E6286DAA3A0009311F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,7 +158,7 @@
 		E820B2DC286DB06A0071F7AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E820B2DD286DB0780071F7AC /* Coordinator.swift */,
+				E820B2E0286DC3FB0071F7AC /* CoordinatorProtocols */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -165,6 +169,16 @@
 				E820B2DA286DB0520071F7AC /* AppCoordinator.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		E820B2E0286DC3FB0071F7AC /* CoordinatorProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				E820B2DD286DB0780071F7AC /* Coordinator.swift */,
+				E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */,
+				E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */,
+			);
+			path = CoordinatorProtocols;
 			sourceTree = "<group>";
 		};
 		E87CB3DA286DAA3A0009311F = {
@@ -482,12 +496,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */,
 				E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */,
 				E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */,
 				E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */,
 				E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */,
 				E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */,
 				E820B2D1286DAF4E0071F7AC /* SplashViewController.swift in Sources */,
+				E820B2E4286DC4270071F7AC /* ChildCoordinator.swift in Sources */,
 				E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
