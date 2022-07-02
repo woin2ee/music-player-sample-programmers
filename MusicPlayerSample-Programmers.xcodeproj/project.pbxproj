@@ -163,7 +163,7 @@
 		E820B2DC286DB06A0071F7AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E820B2E0286DC3FB0071F7AC /* CoordinatorProtocols */,
+				E820B2DD286DB0780071F7AC /* Coordinator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -174,14 +174,6 @@
 				E820B2DA286DB0520071F7AC /* AppCoordinator.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		E820B2E0286DC3FB0071F7AC /* CoordinatorProtocols */ = {
-			isa = PBXGroup;
-			children = (
-				E820B2DD286DB0780071F7AC /* Coordinator.swift */,
-			);
-			path = CoordinatorProtocols;
 			sourceTree = "<group>";
 		};
 		E820B2E5286DF2460071F7AC /* ViewController */ = {
