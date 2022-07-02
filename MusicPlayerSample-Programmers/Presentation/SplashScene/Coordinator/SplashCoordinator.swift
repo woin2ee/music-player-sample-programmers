@@ -34,6 +34,7 @@ extension SplashCoordinator: SplashViewCoordinatingDelegate {
             parentCoordinator: self,
             navigationController: self.navigationController
         )
+        childCoordinators.append(musicPlayerCoordinator)
         musicPlayerCoordinator.start()
     }
 }

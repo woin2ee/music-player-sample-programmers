@@ -24,6 +24,7 @@
 		E87CB3FE286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3FD286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift */; };
 		E87CB408286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */; };
 		E87CB40A286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */; };
+		E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E87CB403286DAA3C0009311F /* MusicPlayerSample-ProgrammersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MusicPlayerSample-ProgrammersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITests.swift; sourceTree = "<group>"; };
 		E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
 		EAC817E796BD927E5D446251 /* Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayerSample-ProgrammersTests/Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			children = (
 				E820B2E6286DF24D0071F7AC /* Coordinator */,
 				E820B2E5286DF2460071F7AC /* ViewController */,
+				E8FB3B49287031A0002F195D /* ViewModel */,
 			);
 			path = MusicPlayerScene;
 			sourceTree = "<group>";
@@ -276,6 +279,14 @@
 				E87CB3F4286DAA3C0009311F /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E8FB3B49287031A0002F195D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */,
+				E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */,
 				E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */,
 				E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */,
 				E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */,
