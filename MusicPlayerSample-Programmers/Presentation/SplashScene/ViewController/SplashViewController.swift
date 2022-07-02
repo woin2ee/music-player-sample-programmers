@@ -8,23 +8,23 @@
 import UIKit
 import SnapKit
 
-protocol SplashViewCoordinatingDelegate: AnyObject {
-    func pushToMusicPlayerView()
-}
-
 final class SplashViewController: UIViewController {
     
-    private weak var coordinatingDelegate: SplashViewCoordinatingDelegate?
+    private var viewModel: SplashViewModel?
     
     private lazy var splashImageView: UIImageView = {
         let imgView = UIImageView(image: UIImage(named: "flo_splash"))
         return imgView
     }()
     
-    convenience init(coordinatingDelegate: SplashViewCoordinatingDelegate) {
+    // MARK: - Initializers
+    
+    convenience init(viewModel: SplashViewModel) {
         self.init(nibName: nil, bundle: nil)
-        self.coordinatingDelegate = coordinatingDelegate
+        self.viewModel = viewModel
     }
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,13 @@ final class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         sleep(2)
-        coordinatingDelegate?.pushToMusicPlayerView()
+        viewModel?.showMusicPlayerView()
     }
+}
+
+// MARK: - Private
+
+private extension SplashViewController {
     
     private func configureSubviews() {
         view.addSubview(splashImageView)

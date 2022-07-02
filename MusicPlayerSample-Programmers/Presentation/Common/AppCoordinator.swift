@@ -7,22 +7,16 @@
 
 import UIKit
 
-final class AppCoordinator: ParentCoordinator {
+final class AppCoordinator: Coordinator {
     
-    var childCoordinators: [ChildCoordinator] = []
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
-        self.navigationController.setNavigationBarHidden(true, animated: false)
     }
     
     func start() {
-        let splashCoordinator = SplashCoordinator(
-            parentCoordinator: self,
-            navigationController: self.navigationController
-        )
-        self.childCoordinators.append(splashCoordinator)
+        let splashCoordinator = SplashCoordinator(navigationController: navigationController)
         splashCoordinator.start()
     }
 }

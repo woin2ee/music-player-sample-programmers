@@ -8,7 +8,6 @@
 import Foundation
 
 protocol MusicPlayerViewModelInput {
-    
 }
 
 protocol MusicPlayerViewModelOutput {
@@ -22,7 +21,11 @@ protocol MusicPlayerViewModel: MusicPlayerViewModelInput, MusicPlayerViewModelOu
 
 final class DefaultMusicPlayerViewModel {
     
+    private var coordinator: MusicPlayerCoordinator?
     
+    init(coordinator: MusicPlayerCoordinator) {
+        self.coordinator = coordinator
+    }
 }
 
 extension DefaultMusicPlayerViewModel: MusicPlayerViewModel {

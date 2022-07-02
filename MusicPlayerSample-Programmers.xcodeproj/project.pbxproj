@@ -14,8 +14,6 @@
 		E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2D8286DB03E0071F7AC /* SplashCoordinator.swift */; };
 		E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DA286DB0520071F7AC /* AppCoordinator.swift */; };
 		E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DD286DB0780071F7AC /* Coordinator.swift */; };
-		E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */; };
-		E820B2E4286DC4270071F7AC /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */; };
 		E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */; };
 		E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E6286DAA3A0009311F /* AppDelegate.swift */; };
 		E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */; };
@@ -25,6 +23,7 @@
 		E87CB408286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */; };
 		E87CB40A286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */; };
 		E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */; };
+		E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +56,6 @@
 		E820B2D8286DB03E0071F7AC /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DA286DB0520071F7AC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DD286DB0780071F7AC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
-		E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
 		E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerCoordinator.swift; sourceTree = "<group>"; };
 		E87CB3E3286DAA3A0009311F /* MusicPlayerSample-Programmers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayerSample-Programmers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB3E6286DAA3A0009311F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +69,7 @@
 		E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITests.swift; sourceTree = "<group>"; };
 		E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
+		E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EAC817E796BD927E5D446251 /* Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayerSample-ProgrammersTests/Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +139,7 @@
 			children = (
 				E820B2D7286DB0280071F7AC /* Coordinator */,
 				E820B2D2286DAF730071F7AC /* ViewController */,
+				E8FB3B4C28707E7D002F195D /* ViewModel */,
 			);
 			path = SplashScene;
 			sourceTree = "<group>";
@@ -181,8 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				E820B2DD286DB0780071F7AC /* Coordinator.swift */,
-				E820B2E1286DC40E0071F7AC /* ParentCoordinator.swift */,
-				E820B2E3286DC4270071F7AC /* ChildCoordinator.swift */,
 			);
 			path = CoordinatorProtocols;
 			sourceTree = "<group>";
@@ -285,6 +282,14 @@
 			isa = PBXGroup;
 			children = (
 				E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E8FB3B4C28707E7D002F195D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -526,16 +531,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E820B2E2286DC40E0071F7AC /* ParentCoordinator.swift in Sources */,
 				E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */,
 				E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */,
+				E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */,
 				E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */,
 				E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */,
 				E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */,
 				E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */,
 				E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */,
 				E820B2D1286DAF4E0071F7AC /* SplashViewController.swift in Sources */,
-				E820B2E4286DC4270071F7AC /* ChildCoordinator.swift in Sources */,
 				E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,21 +7,17 @@
 
 import UIKit
 
-final class MusicPlayerCoordinator: ChildCoordinator {
+final class MusicPlayerCoordinator: Coordinator {
     
-    var parentCoordinator: ParentCoordinator?
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
-    init(
-        parentCoordinator: ParentCoordinator,
-        navigationController: UINavigationController
-    ) {
-        self.parentCoordinator = parentCoordinator
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let musicPlayerVC = MusicPlayerViewController(viewModel: DefaultMusicPlayerViewModel())
-        navigationController.pushViewController(musicPlayerVC, animated: false)
+        let musicPlayerVM = DefaultMusicPlayerViewModel(coordinator: self)
+        let musicPlayerVC = MusicPlayerViewController(viewModel: musicPlayerVM)
+        navigationController?.pushViewController(musicPlayerVC, animated: false)
     }
 }

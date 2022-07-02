@@ -7,34 +7,25 @@
 
 import UIKit
 
-final class SplashCoordinator: ParentCoordinator, ChildCoordinator {
+final class SplashCoordinator: Coordinator {
     
-    weak var parentCoordinator: ParentCoordinator?
-    var childCoordinators: [ChildCoordinator] = []
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
-    init(
-        parentCoordinator: ParentCoordinator,
-        navigationController: UINavigationController
-    ) {
-        self.parentCoordinator = parentCoordinator
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let splashVC = SplashViewController(coordinatingDelegate: self)
-        navigationController.pushViewController(splashVC, animated: true)
+        let splashVM = DefaultSplashViewModel(coordinator: self)
+        let splashVC = SplashViewController(viewModel: splashVM)
+        navigationController?.setViewControllers([splashVC], animated: false)
     }
 }
 
-extension SplashCoordinator: SplashViewCoordinatingDelegate {
+extension SplashCoordinator {
     
-    func pushToMusicPlayerView() {
-        let musicPlayerCoordinator = MusicPlayerCoordinator(
-            parentCoordinator: self,
-            navigationController: self.navigationController
-        )
-        childCoordinators.append(musicPlayerCoordinator)
+    func showMusicPlayerView() {
+        let musicPlayerCoordinator = MusicPlayerCoordinator(navigationController: navigationController)
         musicPlayerCoordinator.start()
     }
 }

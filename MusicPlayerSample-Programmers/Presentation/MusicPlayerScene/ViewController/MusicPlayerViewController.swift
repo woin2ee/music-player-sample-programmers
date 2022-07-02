@@ -50,6 +50,8 @@ final class MusicPlayerViewController: UIViewController {
     }
 }
 
+// MARK: - Private
+
 private extension MusicPlayerViewController {
     
     func configureSubviews() {
