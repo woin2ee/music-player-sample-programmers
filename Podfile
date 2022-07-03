@@ -7,6 +7,7 @@ target 'MusicPlayerSample-Programmers' do
 
   # Pods for MusicPlayerSample-Programmers
 	pod 'SnapKit', '~> 5.6.0'
+	pod 'MarqueeLabel'
 
   target 'MusicPlayerSample-ProgrammersTests' do
     inherit! :search_paths
