@@ -17,10 +17,14 @@ final class MusicPlayerCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-        let musicPlayerVM = DefaultMusicPlayerViewModel(coordinator: self)
+        let musicPlayerVM = DefaultMusicPlayerViewModel(
+            musicRepository: DefaultMusicRepository(),
+            coordinator: self
+        )
         let musicPlayerVC = MusicPlayerViewController(viewModel: musicPlayerVM)
         
         navigationController?.delegate = self
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setViewControllers([musicPlayerVC], animated: false)
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import MarqueeLabel
 
 final class MusicPlayerViewController: UIViewController {
     
@@ -14,25 +15,53 @@ final class MusicPlayerViewController: UIViewController {
     
     // MARK: - UI Components
     
-    lazy var musicTitleLabel: UILabel = {
-        let lbl = UILabel()
+    lazy var musicTitleLabel: MarqueeLabel = {
+        let lbl = MarqueeLabel()
         lbl.text = viewModel.musicTitle
+        lbl.font = .systemFont(ofSize: 30, weight: .semibold)
+        lbl.textAlignment = .center
+        lbl.speed = .duration(10.0)
+        lbl.fadeLength = 10.0
+        lbl.trailingBuffer = 40
         return lbl
     }()
     
-    lazy var singerLabel: UILabel = {
-        let lbl = UILabel()
-        return lbl
-    }()
-    
-    lazy var albumLabel: UILabel = {
-        let lbl = UILabel()
+    lazy var musicSingerLabel: MarqueeLabel = {
+        let lbl = MarqueeLabel()
+        lbl.text = viewModel.musicSinger
+        lbl.font = .systemFont(ofSize: 16, weight: .regular)
+        lbl.textAlignment = .center
+        lbl.speed = .duration(10.0)
+        lbl.fadeLength = 10.0
+        lbl.trailingBuffer = 20
         return lbl
     }()
     
     lazy var albumImageView: UIImageView = {
-        let imgView = UIImageView(image: UIImage(named: viewModel.albumImageURL))
+        let imgView = UIImageView(image: UIImage(systemName: "star"))
+        imgView.contentMode = .scaleAspectFill
         return imgView
+    }()
+    
+    lazy var musicAlbumLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = viewModel.musicAlbumTitle
+        lbl.textAlignment = .center
+        return lbl
+    }()
+    
+    lazy var playButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.title = "재생"
+        
+        let button = UIButton(configuration: config)
+        return button
+    }()
+    
+    lazy var seekBar: UISlider = {
+        let bar = UISlider()
+        
+        return bar
     }()
     
     // MARK: - Initializers
@@ -62,11 +91,46 @@ private extension MusicPlayerViewController {
     
     func addSubviews() {
         view.addSubview(musicTitleLabel)
+        view.addSubview(musicSingerLabel)
+        view.addSubview(albumImageView)
+        view.addSubview(musicAlbumLabel)
+        view.addSubview(seekBar)
+        view.addSubview(playButton)
     }
     
     func setupConstraints() {
+        navigationController?.navigationBar.backgroundColor = .brown
+        
         musicTitleLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
+        
+        musicSingerLabel.snp.makeConstraints { make in
+            make.top.equalTo(musicTitleLabel.snp.bottom).offset(12)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        albumImageView.snp.makeConstraints { make in
+            make.width.equalTo(albumImageView.snp.height)
+            make.top.equalTo(musicSingerLabel.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(22)
+        }
+        
+        musicAlbumLabel.snp.makeConstraints { make in
+            make.top.equalTo(albumImageView.snp.bottom).offset(12)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        
+        seekBar.snp.makeConstraints { make in
+            make.bottom.equalTo(playButton.snp.top).offset(-20)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
+        
+        playButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            make.centerX.equalToSuperview()
         }
     }
 }

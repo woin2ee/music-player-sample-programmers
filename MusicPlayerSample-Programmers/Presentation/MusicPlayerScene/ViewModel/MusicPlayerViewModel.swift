@@ -21,9 +21,14 @@ protocol MusicPlayerViewModel: MusicPlayerViewModelInput, MusicPlayerViewModelOu
 
 final class DefaultMusicPlayerViewModel {
     
-    private var coordinator: MusicPlayerCoordinator?
+    private var musicRepository: MusicRepository
+    private var coordinator: MusicPlayerCoordinator
     
-    init(coordinator: MusicPlayerCoordinator) {
+    init(
+        musicRepository: MusicRepository,
+        coordinator: MusicPlayerCoordinator
+    ) {
+        self.musicRepository = musicRepository
         self.coordinator = coordinator
     }
 }
@@ -33,15 +38,15 @@ extension DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     // MARK: - Output
     
     var musicTitle: String {
-        "MusicTItle"
+        "We Wish You A Merry Christmas"
     }
     
     var musicSinger: String {
-        "MusicSinger"
+        "챔버오케스트라"
     }
     
     var musicAlbumTitle: String {
-        "MusicAlbumTitle"
+        "캐롤 모음"
     }
     
     var albumImageURL: String {

@@ -15,11 +15,13 @@
 		E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DA286DB0520071F7AC /* AppCoordinator.swift */; };
 		E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DD286DB0780071F7AC /* Coordinator.swift */; };
 		E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */; };
+		E86111532871920E005A088B /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86111522871920E005A088B /* MusicRepository.swift */; };
+		E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861115428719235005A088B /* DefaultMusicRepository.swift */; };
 		E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E6286DAA3A0009311F /* AppDelegate.swift */; };
 		E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */; };
 		E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */; };
 		E87CB3F0286DAA3C0009311F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87CB3EF286DAA3C0009311F /* Assets.xcassets */; };
-		E87CB3FE286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3FD286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift */; };
+		E87CB3FE286DAA3C0009311F /* MusicPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3FD286DAA3C0009311F /* MusicPlayerViewModelTests.swift */; };
 		E87CB408286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */; };
 		E87CB40A286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */; };
 		E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */; };
@@ -57,6 +59,8 @@
 		E820B2DA286DB0520071F7AC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DD286DB0780071F7AC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerCoordinator.swift; sourceTree = "<group>"; };
+		E86111522871920E005A088B /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
+		E861115428719235005A088B /* DefaultMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicRepository.swift; sourceTree = "<group>"; };
 		E87CB3E3286DAA3A0009311F /* MusicPlayerSample-Programmers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayerSample-Programmers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB3E6286DAA3A0009311F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		E87CB3EF286DAA3C0009311F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87CB3F4286DAA3C0009311F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "MusicPlayerSample-Programmers/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
 		E87CB3F9286DAA3C0009311F /* MusicPlayerSample-ProgrammersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MusicPlayerSample-ProgrammersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E87CB3FD286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersTests.swift; sourceTree = "<group>"; };
+		E87CB3FD286DAA3C0009311F /* MusicPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		E87CB403286DAA3C0009311F /* MusicPlayerSample-ProgrammersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MusicPlayerSample-ProgrammersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITests.swift; sourceTree = "<group>"; };
 		E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -192,6 +196,46 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		E861114D2871909D005A088B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E8611151287191E1005A088B /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E861114E287190A5005A088B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E86111502871917E005A088B /* Interfaces */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E861114F28719158005A088B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E86111522871920E005A088B /* MusicRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E86111502871917E005A088B /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				E861114F28719158005A088B /* Repositories */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		E8611151287191E1005A088B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E861115428719235005A088B /* DefaultMusicRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		E87CB3DA286DAA3A0009311F = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				E87CB417286DAA540009311F /* Application */,
+				E861114D2871909D005A088B /* Data */,
+				E861114E287190A5005A088B /* Domain */,
 				E87CB416286DAA520009311F /* Presentation */,
 				E87CB418286DAA620009311F /* Resources */,
 			);
@@ -227,7 +273,7 @@
 		E87CB3FC286DAA3C0009311F /* MusicPlayerSample-ProgrammersTests */ = {
 			isa = PBXGroup;
 			children = (
-				E87CB3FD286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift */,
+				E87CB3FD286DAA3C0009311F /* MusicPlayerViewModelTests.swift */,
 			);
 			path = "MusicPlayerSample-ProgrammersTests";
 			sourceTree = "<group>";
@@ -523,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86111532871920E005A088B /* MusicRepository.swift in Sources */,
 				E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */,
 				E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */,
 				E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */,
@@ -531,6 +578,7 @@
 				E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */,
 				E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */,
 				E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */,
+				E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */,
 				E820B2D1286DAF4E0071F7AC /* SplashViewController.swift in Sources */,
 				E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */,
 			);
@@ -540,7 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E87CB3FE286DAA3C0009311F /* MusicPlayerSample_ProgrammersTests.swift in Sources */,
+				E87CB3FE286DAA3C0009311F /* MusicPlayerViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
