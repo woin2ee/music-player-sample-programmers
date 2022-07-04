@@ -8,16 +8,19 @@
 import UIKit
 import SnapKit
 import MarqueeLabel
+import AVFAudio
 
 final class MusicPlayerViewController: UIViewController {
     
     private var viewModel: MusicPlayerViewModel!
     
+    private var audioPlayer: AVAudioPlayer?
+    
     // MARK: - UI Components
     
     lazy var musicTitleLabel: MarqueeLabel = {
         let lbl = MarqueeLabel()
-        lbl.text = viewModel.musicTitle
+        lbl.text = viewModel.music.title
         lbl.font = .systemFont(ofSize: 30, weight: .semibold)
         lbl.textAlignment = .center
         lbl.speed = .duration(10.0)
@@ -28,7 +31,7 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var musicSingerLabel: MarqueeLabel = {
         let lbl = MarqueeLabel()
-        lbl.text = viewModel.musicSinger
+        lbl.text = viewModel.music.singer
         lbl.font = .systemFont(ofSize: 16, weight: .regular)
         lbl.textAlignment = .center
         lbl.speed = .duration(10.0)
@@ -38,14 +41,16 @@ final class MusicPlayerViewController: UIViewController {
     }()
     
     lazy var albumImageView: UIImageView = {
-        let imgView = UIImageView(image: UIImage(systemName: "star"))
+        let imgView = UIImageView(image: viewModel.music.albumImage)
         imgView.contentMode = .scaleAspectFill
+        imgView.clipsToBounds = true
+        imgView.layer.cornerRadius = 16
         return imgView
     }()
     
     lazy var musicAlbumLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = viewModel.musicAlbumTitle
+        lbl.text = viewModel.music.albumTitle
         lbl.textAlignment = .center
         return lbl
     }()
@@ -53,8 +58,15 @@ final class MusicPlayerViewController: UIViewController {
     lazy var playButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "재생"
-        
-        let button = UIButton(configuration: config)
+        let button = UIButton(
+            configuration: config,
+            primaryAction: UIAction { _ in
+                self.audioPlayer = try! AVAudioPlayer(data: self.viewModel.music.file)
+                self.audioPlayer?.prepareToPlay()
+                self.audioPlayer?.play()
+                print(self.audioPlayer)
+            }
+        )
         return button
     }()
     
@@ -112,8 +124,8 @@ private extension MusicPlayerViewController {
         }
         
         albumImageView.snp.makeConstraints { make in
-            make.width.equalTo(albumImageView.snp.height)
-            make.top.equalTo(musicSingerLabel.snp.bottom).offset(30)
+            make.width.equalTo(albumImageView.snp.height).offset(100)
+            make.top.equalTo(musicSingerLabel.snp.bottom).offset(38)
             make.leading.trailing.equalToSuperview().inset(22)
         }
         

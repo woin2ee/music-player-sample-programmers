@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MusicRepository {
-    func fetchMusic()
+    func fetchMusic() -> Music
 }
