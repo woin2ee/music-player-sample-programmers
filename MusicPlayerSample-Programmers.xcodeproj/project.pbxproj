@@ -15,6 +15,7 @@
 		E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DA286DB0520071F7AC /* AppCoordinator.swift */; };
 		E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DD286DB0780071F7AC /* Coordinator.swift */; };
 		E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */; };
+		E8523F942872C88D0018F653 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8523F932872C88D0018F653 /* Music.swift */; };
 		E86111532871920E005A088B /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86111522871920E005A088B /* MusicRepository.swift */; };
 		E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861115428719235005A088B /* DefaultMusicRepository.swift */; };
 		E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E6286DAA3A0009311F /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		E820B2DA286DB0520071F7AC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DD286DB0780071F7AC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E820B2E7286DF2650071F7AC /* MusicPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerCoordinator.swift; sourceTree = "<group>"; };
+		E8523F932872C88D0018F653 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		E86111522871920E005A088B /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
 		E861115428719235005A088B /* DefaultMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicRepository.swift; sourceTree = "<group>"; };
 		E87CB3E3286DAA3A0009311F /* MusicPlayerSample-Programmers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayerSample-Programmers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		E8523F922872C87D0018F653 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E8523F932872C88D0018F653 /* Music.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		E861114D2871909D005A088B /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 		E861114E287190A5005A088B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				E8523F922872C87D0018F653 /* Entities */,
 				E86111502871917E005A088B /* Interfaces */,
 			);
 			path = Domain;
@@ -570,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E86111532871920E005A088B /* MusicRepository.swift in Sources */,
+				E8523F942872C88D0018F653 /* Music.swift in Sources */,
 				E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */,
 				E820B2E8286DF2650071F7AC /* MusicPlayerCoordinator.swift in Sources */,
 				E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */,
