@@ -61,10 +61,7 @@ final class MusicPlayerViewController: UIViewController {
         let button = UIButton(
             configuration: config,
             primaryAction: UIAction { _ in
-                self.audioPlayer = try! AVAudioPlayer(data: self.viewModel.music.file)
-                self.audioPlayer?.prepareToPlay()
-                self.audioPlayer?.play()
-                print(self.audioPlayer)
+                self.playMusic()
             }
         )
         return button
@@ -91,7 +88,18 @@ final class MusicPlayerViewController: UIViewController {
     }
 }
 
-// MARK: - Private
+// MARK: - Supporting Method
+
+private extension MusicPlayerViewController {
+    
+    func playMusic() {
+        audioPlayer = try! AVAudioPlayer(data: self.viewModel.music.file)
+        audioPlayer?.prepareToPlay()
+        audioPlayer?.play()
+    }
+}
+
+// MARK: - Configure UI
 
 private extension MusicPlayerViewController {
     
