@@ -17,6 +17,7 @@ final class MusicPlayerViewController: UIViewController {
     private lazy var audioPlayer: AVAudioPlayer? = {
         return try? .init(data: viewModel.music.file)
     }()
+    private var seekBarProgressTimer: Timer?
     
     // MARK: - UI Components
     
@@ -106,14 +107,19 @@ final class MusicPlayerViewController: UIViewController {
 
 private extension MusicPlayerViewController {
     
+    // FIXME: ViewController 에 로직이 있음 후에 ViewModel 로 분리
     func togglePlayMusic() {
         guard let audioPlayer = audioPlayer else { return }
         
         audioPlayer.prepareToPlay()
         if audioPlayer.isPlaying {
+            seekBarProgressTimer?.invalidate()
             audioPlayer.pause()
             playButton.setTitle("재생", for: .normal)
         } else {
+            seekBarProgressTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                self.seekBar.value += 1
+            }
             audioPlayer.play()
             playButton.setTitle("일시정지", for: .normal)
         }
