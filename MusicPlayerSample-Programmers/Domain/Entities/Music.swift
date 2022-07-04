@@ -16,5 +16,5 @@ struct Music {
     let albumImage: UIImage
     let file: Data
     let lyrics: Lyrics
-    let duration: Int
+    let duration: Float
 }

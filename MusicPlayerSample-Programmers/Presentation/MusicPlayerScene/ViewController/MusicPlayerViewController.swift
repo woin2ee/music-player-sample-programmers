@@ -14,7 +14,9 @@ final class MusicPlayerViewController: UIViewController {
     
     private var viewModel: MusicPlayerViewModel!
     
-    private var audioPlayer: AVAudioPlayer?
+    private lazy var audioPlayer: AVAudioPlayer? = {
+        return try? .init(data: viewModel.music.file)
+    }()
     
     // MARK: - UI Components
     
@@ -61,7 +63,7 @@ final class MusicPlayerViewController: UIViewController {
         let button = UIButton(
             configuration: config,
             primaryAction: UIAction { _ in
-                self.playMusic()
+                self.togglePlayMusic()
             }
         )
         return button
@@ -69,7 +71,19 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var seekBar: UISlider = {
         let bar = UISlider()
-        
+        bar.minimumValue = 0
+        bar.maximumValue = viewModel.music.duration
+        bar.minimumTrackTintColor = .systemBlue
+        bar.maximumTrackTintColor = .systemGray4
+//        bar.setThumbImage(UIImage(systemName: "star"), for: .normal)
+        bar.thumbTintColor = .clear
+        bar.isContinuous = false
+        bar.addAction(
+            UIAction { _ in
+                self.audioPlayer?.currentTime = Double(bar.value)
+            },
+            for: .valueChanged
+        )
         return bar
     }()
     
@@ -92,10 +106,17 @@ final class MusicPlayerViewController: UIViewController {
 
 private extension MusicPlayerViewController {
     
-    func playMusic() {
-        audioPlayer = try! AVAudioPlayer(data: self.viewModel.music.file)
-        audioPlayer?.prepareToPlay()
-        audioPlayer?.play()
+    func togglePlayMusic() {
+        guard let audioPlayer = audioPlayer else { return }
+        
+        audioPlayer.prepareToPlay()
+        if audioPlayer.isPlaying {
+            audioPlayer.pause()
+            playButton.setTitle("재생", for: .normal)
+        } else {
+            audioPlayer.play()
+            playButton.setTitle("일시정지", for: .normal)
+        }
     }
 }
 
