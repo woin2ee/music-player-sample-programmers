@@ -7,17 +7,13 @@
 
 import UIKit
 import SnapKit
+import Combine
 import MarqueeLabel
-import AVFAudio
 
 final class MusicPlayerViewController: UIViewController {
     
     private var viewModel: MusicPlayerViewModel!
-    
-    private lazy var audioPlayer: AVAudioPlayer? = {
-        return try? .init(data: viewModel.music.file)
-    }()
-    private var seekBarProgressTimer: Timer?
+    private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - UI Components
     
@@ -58,15 +54,11 @@ final class MusicPlayerViewController: UIViewController {
         return lbl
     }()
     
-    lazy var playButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.title = "재생"
-        let button = UIButton(
-            configuration: config,
-            primaryAction: UIAction { _ in
-                self.togglePlayMusic()
-            }
-        )
+    lazy var playAndPauseButton: UIButton = {
+        let button = UIButton(primaryAction: UIAction { _ in
+            self.viewModel.didTapPlayAndPauseButton()
+        })
+        button.tintColor = .black
         return button
     }()
     
@@ -77,11 +69,11 @@ final class MusicPlayerViewController: UIViewController {
         bar.minimumTrackTintColor = .systemBlue
         bar.maximumTrackTintColor = .systemGray4
 //        bar.setThumbImage(UIImage(systemName: "star"), for: .normal)
-        bar.thumbTintColor = .clear
+//        bar.thumbTintColor = .clear
         bar.isContinuous = false
         bar.addAction(
             UIAction { _ in
-                self.audioPlayer?.currentTime = Double(bar.value)
+                self.viewModel.didUpdateSeekBar(value: bar.value)
             },
             for: .valueChanged
         )
@@ -93,6 +85,15 @@ final class MusicPlayerViewController: UIViewController {
     convenience init(viewModel: MusicPlayerViewModel) {
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        self.bindToViewModel()
+    }
+    
+    private func bindToViewModel() {
+        viewModel.isPlayingPublisher
+            .sink { [weak self] isPlaying in
+                self?.setButtonImage(isPlaying)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Life Cycle
@@ -100,29 +101,6 @@ final class MusicPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
-    }
-}
-
-// MARK: - Supporting Method
-
-private extension MusicPlayerViewController {
-    
-    // FIXME: ViewController 에 로직이 있음 후에 ViewModel 로 분리
-    func togglePlayMusic() {
-        guard let audioPlayer = audioPlayer else { return }
-        
-        audioPlayer.prepareToPlay()
-        if audioPlayer.isPlaying {
-            seekBarProgressTimer?.invalidate()
-            audioPlayer.pause()
-            playButton.setTitle("재생", for: .normal)
-        } else {
-            seekBarProgressTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                self.seekBar.value += 1
-            }
-            audioPlayer.play()
-            playButton.setTitle("일시정지", for: .normal)
-        }
     }
 }
 
@@ -142,7 +120,7 @@ private extension MusicPlayerViewController {
         view.addSubview(albumImageView)
         view.addSubview(musicAlbumLabel)
         view.addSubview(seekBar)
-        view.addSubview(playButton)
+        view.addSubview(playAndPauseButton)
     }
     
     func setupConstraints() {
@@ -171,13 +149,21 @@ private extension MusicPlayerViewController {
         
         
         seekBar.snp.makeConstraints { make in
-            make.bottom.equalTo(playButton.snp.top).offset(-20)
+            make.bottom.equalTo(playAndPauseButton.snp.top)
             make.leading.trailing.equalToSuperview().inset(30)
         }
         
-        playButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+        playAndPauseButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
             make.centerX.equalToSuperview()
+        }
+    }
+    
+    func setButtonImage(_ isPlaying: Bool) {
+        if isPlaying {
+            playAndPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+        } else {
+            playAndPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
     }
 }

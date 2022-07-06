@@ -13,16 +13,15 @@ protocol SplashViewModelInput {
 
 protocol SplashViewModel: SplashViewModelInput {}
 
-final class DefaultSplashViewModel {
+final class DefaultSplashViewModel: SplashViewModel {
     
-    private var coordinator: SplashCoordinator
+    private let coordinator: SplashCoordinator
     
     init(coordinator: SplashCoordinator) {
         self.coordinator = coordinator
     }
-}
-
-extension DefaultSplashViewModel: SplashViewModel {
+    
+    // MARK: - Input
     
     func showMusicPlayerView() {
         coordinator.showMusicPlayerView()
