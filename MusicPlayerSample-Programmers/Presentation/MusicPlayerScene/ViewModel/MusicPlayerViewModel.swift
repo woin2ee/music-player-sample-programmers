@@ -34,9 +34,7 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     // MARK: - Output
     
     var music: Music {
-        didSet {
-            updateMusicInAudioPlayer()
-        }
+        didSet { updateMusicInAudioPlayer() }
     }
     
     @Published private(set) var isPlaying: Bool = false
@@ -61,17 +59,11 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     }
     
     func didTapPlayAndPauseButton() {
-        if audioPlayer == nil {
-            audioPlayer = try! .init(data: music.file)
-            audioPlayer?.prepareToPlay()
-        }
-        
         if isPlaying {
             audioPlayer?.pause()
         } else {
             audioPlayer?.play()
         }
-        
         isPlaying.toggle()
         
         
@@ -91,8 +83,13 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
 //            playAndPauseButton.setTitle("일시정지", for: .normal)
 //        }
     }
+}
+
+// MARK: - Private Method
+
+private extension DefaultMusicPlayerViewModel {
     
-    private func updateMusicInAudioPlayer() {
+    func updateMusicInAudioPlayer() {
         do {
             audioPlayer = try .init(data: music.file)
             audioPlayer?.prepareToPlay()
