@@ -13,6 +13,7 @@ import MarqueeLabel
 final class MusicPlayerViewController: UIViewController {
     
     private var viewModel: MusicPlayerViewModel!
+    private var lyricsTableViewController: LyricsTableViewController!
     private var cancellables: Set<AnyCancellable> = []
     private var timer: Timer?
     
@@ -55,13 +56,7 @@ final class MusicPlayerViewController: UIViewController {
         return lbl
     }()
     
-    lazy var playAndPauseButton: UIButton = {
-        let button = UIButton(primaryAction: UIAction { _ in
-            self.viewModel.didTapPlayAndPauseButton()
-        })
-        button.tintColor = .black
-        return button
-    }()
+    lazy var lyricsTableView: UITableView = lyricsTableViewController.tableView
     
     lazy var seekBar: UISlider = {
         let bar = UISlider()
@@ -79,11 +74,20 @@ final class MusicPlayerViewController: UIViewController {
         return bar
     }()
     
+    lazy var playAndPauseButton: UIButton = {
+        let button = UIButton(primaryAction: UIAction { _ in
+            self.viewModel.didTapPlayAndPauseButton()
+        })
+        button.tintColor = .black
+        return button
+    }()
+    
     // MARK: - Initializers
     
     convenience init(viewModel: MusicPlayerViewModel) {
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        self.lyricsTableViewController = LyricsTableViewController()
         self.bindToViewModel()
     }
     
@@ -102,7 +106,6 @@ final class MusicPlayerViewController: UIViewController {
                 self?.albumImageView.image = music.albumImage
                 self?.musicAlbumLabel.text = music.albumTitle
                 self?.seekBar.maximumValue = music.duration
-                print("set")
             }
             .store(in: &cancellables)
     }
@@ -135,13 +138,15 @@ private extension MusicPlayerViewController {
         view.addSubview(musicSingerLabel)
         view.addSubview(albumImageView)
         view.addSubview(musicAlbumLabel)
+        view.addSubview(lyricsTableView)
         view.addSubview(seekBar)
         view.addSubview(playAndPauseButton)
     }
     
     func setupConstraints() {
         musicTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            make.top.greaterThanOrEqualTo(view.safeAreaLayoutGuide).offset(2)
+            make.top.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(20)
             make.leading.trailing.equalToSuperview().inset(30)
         }
         
@@ -161,6 +166,12 @@ private extension MusicPlayerViewController {
             make.leading.trailing.equalToSuperview()
         }
         
+        lyricsTableView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(musicAlbumLabel.snp.bottom).offset(40)
+            make.height.equalTo(60)
+            make.bottom.equalTo(seekBar.snp.top).offset(-60)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
         
         seekBar.snp.makeConstraints { make in
             make.bottom.equalTo(playAndPauseButton.snp.top)

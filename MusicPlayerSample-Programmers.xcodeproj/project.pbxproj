@@ -18,6 +18,8 @@
 		E8523F942872C88D0018F653 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8523F932872C88D0018F653 /* Music.swift */; };
 		E86111532871920E005A088B /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86111522871920E005A088B /* MusicRepository.swift */; };
 		E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861115428719235005A088B /* DefaultMusicRepository.swift */; };
+		E86DC4102877071C0016DCE4 /* LyricsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86DC40F2877071C0016DCE4 /* LyricsTableViewController.swift */; };
+		E86DC4132877092F0016DCE4 /* LyricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86DC4122877092F0016DCE4 /* LyricsTableViewCell.swift */; };
 		E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E6286DAA3A0009311F /* AppDelegate.swift */; };
 		E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */; };
 		E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */; };
@@ -63,6 +65,8 @@
 		E8523F932872C88D0018F653 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		E86111522871920E005A088B /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
 		E861115428719235005A088B /* DefaultMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicRepository.swift; sourceTree = "<group>"; };
+		E86DC40F2877071C0016DCE4 /* LyricsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsTableViewController.swift; sourceTree = "<group>"; };
+		E86DC4122877092F0016DCE4 /* LyricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsTableViewCell.swift; sourceTree = "<group>"; };
 		E87CB3E3286DAA3A0009311F /* MusicPlayerSample-Programmers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayerSample-Programmers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB3E6286DAA3A0009311F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87CB3E8286DAA3A0009311F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */,
+				E86DC40F2877071C0016DCE4 /* LyricsTableViewController.swift */,
+				E86DC411287709190016DCE4 /* Cell */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -245,6 +251,14 @@
 				E861115428719235005A088B /* DefaultMusicRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E86DC411287709190016DCE4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E86DC4122877092F0016DCE4 /* LyricsTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E87CB3DA286DAA3A0009311F = {
@@ -587,9 +601,11 @@
 				E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */,
 				E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */,
 				E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */,
+				E86DC4102877071C0016DCE4 /* LyricsTableViewController.swift in Sources */,
 				E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */,
 				E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */,
 				E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */,
+				E86DC4132877092F0016DCE4 /* LyricsTableViewCell.swift in Sources */,
 				E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */,
 				E820B2D1286DAF4E0071F7AC /* SplashViewController.swift in Sources */,
 				E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */,
