@@ -69,8 +69,6 @@ final class MusicPlayerViewController: UIViewController {
         bar.maximumValue = viewModel.music.duration
         bar.minimumTrackTintColor = .systemBlue
         bar.maximumTrackTintColor = .systemGray4
-//        bar.setThumbImage(UIImage(systemName: "star"), for: .normal)
-//        bar.thumbTintColor = .clear
         bar.isContinuous = false
         bar.addAction(
             UIAction { _ in
@@ -131,8 +129,6 @@ private extension MusicPlayerViewController {
     }
     
     func setupConstraints() {
-        navigationController?.navigationBar.backgroundColor = .brown
-        
         musicTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.leading.trailing.equalToSuperview().inset(30)

@@ -66,23 +66,6 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
             audioPlayer?.play()
         }
         isPlaying.toggle()
-        
-        
-//        guard let audioPlayer = audioPlayer else { return }
-//
-//        audioPlayer.prepareToPlay()
-//        if audioPlayer.isPlaying {
-//            seekBarProgressTimer?.invalidate()
-//            audioPlayer.pause()
-//            playAndPauseButton.setTitle("재생", for: .normal)
-//        } else {
-//            seekBarProgressTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-//                self.seekBar.value += 1
-//            }
-//            seekBarProgressTimer?.tolerance = 0.2
-//            audioPlayer.play()
-//            playAndPauseButton.setTitle("일시정지", for: .normal)
-//        }
     }
 }
 
