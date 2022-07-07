@@ -94,6 +94,17 @@ final class MusicPlayerViewController: UIViewController {
                 self?.controlSeekBar(isPlaying)
             }
             .store(in: &cancellables)
+        
+        viewModel.musicPublisher
+            .sink { [weak self] music in
+                self?.musicTitleLabel.text = music.title
+                self?.musicSingerLabel.text = music.singer
+                self?.albumImageView.image = music.albumImage
+                self?.musicAlbumLabel.text = music.albumTitle
+                self?.seekBar.maximumValue = music.duration
+                print("set")
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Life Cycle

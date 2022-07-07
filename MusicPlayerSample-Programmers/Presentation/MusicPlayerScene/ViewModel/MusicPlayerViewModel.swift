@@ -16,9 +16,11 @@ protocol MusicPlayerViewModelInput {
 
 protocol MusicPlayerViewModelOutput {
     var music: Music { get }
-    
     var isPlaying: Bool { get }
+    
+    var musicPublisher: AnyPublisher<Music, Never> { get }
     var isPlayingPublisher: AnyPublisher<Bool, Never> { get }
+    
     var currentPlayTime: TimeInterval { get }
 }
 
@@ -33,12 +35,14 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     
     // MARK: - Output
     
-    var music: Music {
+    @Published private(set) var music: Music {
         didSet { updateMusicInAudioPlayer() }
     }
-    
     @Published private(set) var isPlaying: Bool = false
+    
+    var musicPublisher: AnyPublisher<Music, Never> { $music.eraseToAnyPublisher() }
     var isPlayingPublisher: AnyPublisher<Bool, Never> { $isPlaying.eraseToAnyPublisher() }
+    
     var currentPlayTime: TimeInterval { audioPlayer?.currentTime ?? 0 }
     
     // MARK: - Initializers
