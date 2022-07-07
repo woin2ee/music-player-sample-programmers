@@ -14,6 +14,7 @@ final class MusicPlayerViewController: UIViewController {
     
     private var viewModel: MusicPlayerViewModel!
     private var cancellables: Set<AnyCancellable> = []
+    private var timer: Timer?
     
     // MARK: - UI Components
     
@@ -92,6 +93,7 @@ final class MusicPlayerViewController: UIViewController {
         viewModel.isPlayingPublisher
             .sink { [weak self] isPlaying in
                 self?.setButtonImage(isPlaying)
+                self?.controlSeekBar(isPlaying)
             }
             .store(in: &cancellables)
     }
@@ -101,6 +103,11 @@ final class MusicPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
     }
 }
 
@@ -164,6 +171,26 @@ private extension MusicPlayerViewController {
             playAndPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         } else {
             playAndPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        }
+    }
+    
+    func controlSeekBar(_ isPlaying: Bool) {
+        if isPlaying {
+            timer = .scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+                guard let self = self else { return }
+                self.seekBar.value = Float(self.viewModel.currentPlayTime)
+            }
+            tuneSeekBar()
+        } else {
+            timer?.invalidate()
+        }
+    }
+    
+    func tuneSeekBar() {
+        let intervalLimit: Float = 2
+        if seekBar.value < Float(self.viewModel.currentPlayTime) - intervalLimit {
+            seekBar.value = Float(self.viewModel.currentPlayTime)
+            print("조율")
         }
     }
 }
