@@ -7,9 +7,9 @@
 
 import UIKit
 
+typealias Lyrics = [Float:String]
+
 struct Music {
-    typealias Lyrics = [Date:String]
-    
     let title: String
     let singer: String
     let albumTitle: String

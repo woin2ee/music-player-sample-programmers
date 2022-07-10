@@ -87,11 +87,11 @@ final class MusicPlayerViewController: UIViewController {
     convenience init(viewModel: MusicPlayerViewModel) {
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
-        self.lyricsTableViewController = LyricsTableViewController()
-        self.bindToViewModel()
+        self.lyricsTableViewController = LyricsTableViewController(viewModel: self.viewModel)
+        self.bindViewModel()
     }
     
-    private func bindToViewModel() {
+    private func bindViewModel() {
         viewModel.isPlayingPublisher
             .sink { [weak self] isPlaying in
                 self?.setButtonImage(isPlaying)

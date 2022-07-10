@@ -21,7 +21,7 @@ final class DefaultMusicRepository: MusicRepository {
             albumTitle: "캐롤 모음",
             albumImage: UIImage(data: try! Data(contentsOf: URL(string: "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/cover.jpg")!))!,
             file: try! Data(contentsOf: URL(string: "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/music.mp3")!),
-            lyrics: .init(),
+            lyrics: [16.2:"we wish you a merry christmas", 18.3:"we wish you a merry christmas", 21.1:"we wish you a merry christmas", 23.6:"and a happy new year"],
             duration: 198
         )
     }
