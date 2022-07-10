@@ -208,7 +208,6 @@ private extension MusicPlayerViewController {
         let intervalLimit: Float = 2
         if seekBar.value < Float(self.viewModel.currentPlayTime) - intervalLimit {
             seekBar.value = Float(self.viewModel.currentPlayTime)
-            print("조율")
         }
     }
 }
