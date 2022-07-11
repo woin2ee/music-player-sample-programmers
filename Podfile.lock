@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (5.6.1)
   - MarqueeLabel (4.3.0)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Alamofire
   - MarqueeLabel
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - MarqueeLabel
     - SnapKit
 
 SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   MarqueeLabel: 02f5ac8fd6877c94564556cb93fa86c70c08baeb
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: c6da3516cf031a3d96122ebd9c54398f356ab2a5
+PODFILE CHECKSUM: 32088f0a6ef5f0c4454eb79de08adb7008917d79
 
 COCOAPODS: 1.11.3
