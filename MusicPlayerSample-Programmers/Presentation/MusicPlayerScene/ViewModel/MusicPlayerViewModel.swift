@@ -10,15 +10,16 @@ import Combine
 import AVFAudio
 
 protocol MusicPlayerViewModelInput {
+    func didLoad()
     func didUpdateSeekBar(value: Float)
     func didTapPlayAndPauseButton()
 }
 
 protocol MusicPlayerViewModelOutput {
-    var music: Music { get }
+    var music: Music? { get }
     var isPlaying: Bool { get }
     
-    var musicPublisher: AnyPublisher<Music, Never> { get }
+    var musicPublisher: AnyPublisher<Music?, Never> { get }
     var isPlayingPublisher: AnyPublisher<Bool, Never> { get }
     
     var currentPlayTime: TimeInterval { get }
@@ -35,12 +36,12 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     
     // MARK: - Output
     
-    @Published private(set) var music: Music {
+    @Published private(set) var music: Music? {
         didSet { updateMusicInAudioPlayer() }
     }
     @Published private(set) var isPlaying: Bool = false
     
-    var musicPublisher: AnyPublisher<Music, Never> { $music.eraseToAnyPublisher() }
+    var musicPublisher: AnyPublisher<Music?, Never> { $music.eraseToAnyPublisher() }
     var isPlayingPublisher: AnyPublisher<Bool, Never> { $isPlaying.eraseToAnyPublisher() }
     
     var currentPlayTime: TimeInterval { audioPlayer?.currentTime ?? 0 }
@@ -53,8 +54,12 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     ) {
         self.musicRepository = musicRepository
         self.coordinator = coordinator
-        self.music = self.musicRepository.fetchMusic()
-        updateMusicInAudioPlayer()
+    }
+    
+    func didLoad() {
+        self.musicRepository.fetchMusic { music in
+            self.music = music
+        }
     }
     
     // MARK: - Input
@@ -79,7 +84,7 @@ private extension DefaultMusicPlayerViewModel {
     
     func updateMusicInAudioPlayer() {
         do {
-            audioPlayer = try .init(data: music.file)
+            audioPlayer = try .init(data: music?.file ?? Data())
             audioPlayer?.prepareToPlay()
         } catch {
             // FIXME: 에러 처리 필요

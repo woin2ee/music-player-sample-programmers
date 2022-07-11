@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MusicRepository {
-    func fetchMusic() -> Music
+    func fetchMusic(_ completion: @escaping (Music) -> Void)
 }

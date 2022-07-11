@@ -27,6 +27,8 @@
 		E87CB3FE286DAA3C0009311F /* MusicPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB3FD286DAA3C0009311F /* MusicPlayerViewModelTests.swift */; };
 		E87CB408286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */; };
 		E87CB40A286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */; };
+		E87EE500287C34B5000120B5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EE4FF287C34B5000120B5 /* NetworkService.swift */; };
+		E87EE502287C3951000120B5 /* MusicResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EE501287C3951000120B5 /* MusicResponseDTO.swift */; };
 		E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */; };
 		E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,8 @@
 		E87CB403286DAA3C0009311F /* MusicPlayerSample-ProgrammersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MusicPlayerSample-ProgrammersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87CB407286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITests.swift; sourceTree = "<group>"; };
 		E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E87EE4FF287C34B5000120B5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E87EE501287C3951000120B5 /* MusicResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicResponseDTO.swift; sourceTree = "<group>"; };
 		E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
 		E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EAC817E796BD927E5D446251 /* Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayerSample-ProgrammersTests/Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				E87CB417286DAA540009311F /* Application */,
 				E861114D2871909D005A088B /* Data */,
 				E861114E287190A5005A088B /* Domain */,
+				E87EE4FE287C344A000120B5 /* Infrastructure */,
 				E87CB416286DAA520009311F /* Presentation */,
 				E87CB418286DAA620009311F /* Resources */,
 			);
@@ -339,6 +344,15 @@
 				E87CB3F4286DAA3C0009311F /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E87EE4FE287C344A000120B5 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				E87EE4FF287C34B5000120B5 /* NetworkService.swift */,
+				E87EE501287C3951000120B5 /* MusicResponseDTO.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		E8FB3B49287031A0002F195D /* ViewModel */ = {
@@ -602,8 +616,10 @@
 				E820B2DE286DB0780071F7AC /* Coordinator.swift in Sources */,
 				E87CB3EB286DAA3A0009311F /* MusicPlayerViewController.swift in Sources */,
 				E86DC4102877071C0016DCE4 /* LyricsTableViewController.swift in Sources */,
+				E87EE502287C3951000120B5 /* MusicResponseDTO.swift in Sources */,
 				E87CB3E7286DAA3A0009311F /* AppDelegate.swift in Sources */,
 				E87CB3E9286DAA3A0009311F /* SceneDelegate.swift in Sources */,
+				E87EE500287C34B5000120B5 /* NetworkService.swift in Sources */,
 				E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */,
 				E86DC4132877092F0016DCE4 /* LyricsTableViewCell.swift in Sources */,
 				E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */,

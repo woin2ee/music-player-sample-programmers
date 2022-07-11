@@ -39,7 +39,7 @@ class LyricsTableViewController: UITableViewController {
     private func bindViewModel() {
         viewModel.musicPublisher
             .sink { [weak self] music in
-                self?.lyrics = music.lyrics
+                self?.lyrics = music?.lyrics ?? [:]
             }
             .store(in: &cancellables)
     }

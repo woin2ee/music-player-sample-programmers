@@ -21,7 +21,7 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var musicTitleLabel: MarqueeLabel = {
         let lbl = MarqueeLabel()
-        lbl.text = viewModel.music.title
+        lbl.text = viewModel.music?.title
         lbl.font = .systemFont(ofSize: 30, weight: .semibold)
         lbl.textAlignment = .center
         lbl.speed = .duration(10.0)
@@ -32,7 +32,7 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var musicSingerLabel: MarqueeLabel = {
         let lbl = MarqueeLabel()
-        lbl.text = viewModel.music.singer
+        lbl.text = viewModel.music?.singer
         lbl.font = .systemFont(ofSize: 16, weight: .regular)
         lbl.textAlignment = .center
         lbl.speed = .duration(10.0)
@@ -42,7 +42,7 @@ final class MusicPlayerViewController: UIViewController {
     }()
     
     lazy var albumImageView: UIImageView = {
-        let imgView = UIImageView(image: viewModel.music.albumImage)
+        let imgView = UIImageView(image: viewModel.music?.albumImage)
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
         imgView.layer.cornerRadius = 16
@@ -51,7 +51,7 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var musicAlbumLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = viewModel.music.albumTitle
+        lbl.text = viewModel.music?.albumTitle
         lbl.textAlignment = .center
         return lbl
     }()
@@ -61,7 +61,7 @@ final class MusicPlayerViewController: UIViewController {
     lazy var seekBar: UISlider = {
         let bar = UISlider()
         bar.minimumValue = 0
-        bar.maximumValue = viewModel.music.duration
+        bar.maximumValue = viewModel.music?.duration ?? 0
         bar.minimumTrackTintColor = .systemBlue
         bar.maximumTrackTintColor = .systemGray4
         bar.isContinuous = false
@@ -101,11 +101,11 @@ final class MusicPlayerViewController: UIViewController {
         
         viewModel.musicPublisher
             .sink { [weak self] music in
-                self?.musicTitleLabel.text = music.title
-                self?.musicSingerLabel.text = music.singer
-                self?.albumImageView.image = music.albumImage
-                self?.musicAlbumLabel.text = music.albumTitle
-                self?.seekBar.maximumValue = music.duration
+                self?.musicTitleLabel.text = music?.title
+                self?.musicSingerLabel.text = music?.singer
+                self?.albumImageView.image = music?.albumImage
+                self?.musicAlbumLabel.text = music?.albumTitle
+                self?.seekBar.maximumValue = music?.duration ?? 0
             }
             .store(in: &cancellables)
     }
@@ -114,6 +114,7 @@ final class MusicPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.didLoad()
         configureSubviews()
     }
     

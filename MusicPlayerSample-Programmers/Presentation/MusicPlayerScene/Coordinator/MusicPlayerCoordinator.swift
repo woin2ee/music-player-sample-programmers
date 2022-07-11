@@ -18,7 +18,7 @@ final class MusicPlayerCoordinator: NSObject, Coordinator {
     
     func start() {
         let musicPlayerVM = DefaultMusicPlayerViewModel(
-            musicRepository: DefaultMusicRepository(),
+            musicRepository: DefaultMusicRepository(networkService: DefaultNetworkService()),
             coordinator: self
         )
         let musicPlayerVC = MusicPlayerViewController(viewModel: musicPlayerVM)
