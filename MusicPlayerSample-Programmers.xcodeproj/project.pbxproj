@@ -350,9 +350,17 @@
 			isa = PBXGroup;
 			children = (
 				E87EE4FF287C34B5000120B5 /* NetworkService.swift */,
-				E87EE501287C3951000120B5 /* MusicResponseDTO.swift */,
+				E87EE503287C4386000120B5 /* DTO */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		E87EE503287C4386000120B5 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				E87EE501287C3951000120B5 /* MusicResponseDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		E8FB3B49287031A0002F195D /* ViewModel */ = {
