@@ -50,6 +50,7 @@ private extension LyricsTableViewController {
         tableView.register(LyricsTableViewCell.self, forCellReuseIdentifier: cellID)
         tableView.separatorColor = .clear
         tableView.showsVerticalScrollIndicator = false
+        tableView.isScrollEnabled = false
     }
     
     private func bindViewModel() {
@@ -100,6 +101,7 @@ extension LyricsTableViewController {
         else { return UITableViewCell() }
         
         cell.lyricsLabel.text = lyrics.sorted { $0.key < $1.key }.map { $0.value }[indexPath.row]
+        cell.selectionStyle = .none
         
         return cell
     }
