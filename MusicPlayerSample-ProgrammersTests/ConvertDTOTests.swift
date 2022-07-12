@@ -48,6 +48,7 @@ class ConvertDTOTests: XCTestCase {
         let duration: Float = (m * 60) + s + (ms / 10)
         
         XCTAssertEqual(duration, 16.2)
+        XCTAssertEqual(l.slice(from: 11), "we wish you a merry christmas")
     }
 }
 
@@ -56,5 +57,11 @@ extension String {
         let startIndex = self.index(self.startIndex, offsetBy: from)
         let endIndex = self.index(self.startIndex, offsetBy: to)
         return String(self[startIndex...endIndex])
+    }
+    
+    func slice(from: Int) -> String {
+        let startIndex = self.index(self.startIndex, offsetBy: from)
+        let endIndex = self.endIndex
+        return String(self[startIndex..<endIndex])
     }
 }
