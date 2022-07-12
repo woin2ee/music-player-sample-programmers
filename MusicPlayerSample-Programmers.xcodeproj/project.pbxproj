@@ -12,6 +12,7 @@
 		C6C96AE4D34F564947731335 /* Pods_MusicPlayerSample_Programmers_MusicPlayerSample_ProgrammersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5DB01FEE3B6458BEE6221C /* Pods_MusicPlayerSample_Programmers_MusicPlayerSample_ProgrammersUITests.framework */; };
 		E811F121287D429C0058856D /* ConvertDTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811F120287D429C0058856D /* ConvertDTOTests.swift */; };
 		E811F127287D4D620058856D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811F126287D4D620058856D /* String+.swift */; };
+		E811F129287D5D220058856D /* LyricsTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811F128287D5D220058856D /* LyricsTableViewTests.swift */; };
 		E820B2D1286DAF4E0071F7AC /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2D0286DAF4E0071F7AC /* SplashViewController.swift */; };
 		E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2D8286DB03E0071F7AC /* SplashCoordinator.swift */; };
 		E820B2DB286DB0520071F7AC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820B2DA286DB0520071F7AC /* AppCoordinator.swift */; };
@@ -62,6 +63,7 @@
 		C9A8BD37CE2B6F837EED43AD /* Pods_MusicPlayerSample_Programmers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayerSample_Programmers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E811F120287D429C0058856D /* ConvertDTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDTOTests.swift; sourceTree = "<group>"; };
 		E811F126287D4D620058856D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		E811F128287D5D220058856D /* LyricsTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsTableViewTests.swift; sourceTree = "<group>"; };
 		E820B2D0286DAF4E0071F7AC /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E820B2D8286DB03E0071F7AC /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		E820B2DA286DB0520071F7AC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				E811F120287D429C0058856D /* ConvertDTOTests.swift */,
+				E811F128287D5D220058856D /* LyricsTableViewTests.swift */,
 			);
 			path = "MusicPlayerSample-ProgrammersTests";
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E811F121287D429C0058856D /* ConvertDTOTests.swift in Sources */,
+				E811F129287D5D220058856D /* LyricsTableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
