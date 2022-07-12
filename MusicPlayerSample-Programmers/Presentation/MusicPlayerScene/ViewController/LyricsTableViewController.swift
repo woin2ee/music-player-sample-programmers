@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class LyricsTableViewController: UITableViewController {
+final class LyricsTableViewController: UITableViewController {
     
     private let cellID: String = String(describing: LyricsTableViewCell.self)
     private var viewModel: MusicPlayerViewModel!
