@@ -152,11 +152,29 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E811F138287D8C760058856D /* FullLyricsView */ = {
+			isa = PBXGroup;
+			children = (
+				E811F130287D742A0058856D /* FullLyricsViewController.swift */,
+			);
+			path = FullLyricsView;
+			sourceTree = "<group>";
+		};
+		E811F139287D8C860058856D /* MusicPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */,
+				E86DC40F2877071C0016DCE4 /* LyricsTableViewController.swift */,
+				E86DC411287709190016DCE4 /* Cell */,
+			);
+			path = MusicPlayerView;
+			sourceTree = "<group>";
+		};
 		E820B2CE286DAF010071F7AC /* MusicPlayerScene */ = {
 			isa = PBXGroup;
 			children = (
 				E820B2E6286DF24D0071F7AC /* Coordinator */,
-				E820B2E5286DF2460071F7AC /* ViewController */,
+				E820B2E5286DF2460071F7AC /* View */,
 				E8FB3B49287031A0002F195D /* ViewModel */,
 			);
 			path = MusicPlayerScene;
@@ -204,15 +222,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		E820B2E5286DF2460071F7AC /* ViewController */ = {
+		E820B2E5286DF2460071F7AC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E87CB3EA286DAA3A0009311F /* MusicPlayerViewController.swift */,
-				E86DC40F2877071C0016DCE4 /* LyricsTableViewController.swift */,
-				E811F130287D742A0058856D /* FullLyricsViewController.swift */,
-				E86DC411287709190016DCE4 /* Cell */,
+				E811F139287D8C860058856D /* MusicPlayerView */,
+				E811F138287D8C760058856D /* FullLyricsView */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E820B2E6286DF24D0071F7AC /* Coordinator */ = {
