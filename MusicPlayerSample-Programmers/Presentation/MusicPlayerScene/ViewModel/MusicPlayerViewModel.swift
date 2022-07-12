@@ -13,6 +13,7 @@ protocol MusicPlayerViewModelInput {
     func didLoad()
     func didUpdateSeekBar(value: Float)
     func didTapPlayAndPauseButton()
+    func didTapLyrics()
 }
 
 protocol MusicPlayerViewModelOutput {
@@ -75,6 +76,10 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
             audioPlayer?.play()
         }
         isPlaying.toggle()
+    }
+    
+    func didTapLyrics() {
+        coordinator.presentFullLyricsView(with: self)
     }
 }
 

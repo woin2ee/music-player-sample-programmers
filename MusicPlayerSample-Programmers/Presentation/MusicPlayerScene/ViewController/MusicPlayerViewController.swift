@@ -120,6 +120,7 @@ final class MusicPlayerViewController: UIViewController {
     }
     
     deinit {
+        debugPrint("deinit : \(Self.description())")
         timer?.invalidate()
     }
 }

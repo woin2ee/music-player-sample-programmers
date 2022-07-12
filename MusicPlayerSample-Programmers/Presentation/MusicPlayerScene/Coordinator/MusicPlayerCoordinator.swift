@@ -29,6 +29,16 @@ final class MusicPlayerCoordinator: NSObject, Coordinator {
     }
 }
 
+extension MusicPlayerCoordinator {
+    
+    func presentFullLyricsView(with viewModel: MusicPlayerViewModel) {
+        let fullLyricsVC = FullLyricsViewController(viewModel: viewModel)
+        fullLyricsVC.modalTransitionStyle = .crossDissolve
+        fullLyricsVC.modalPresentationStyle = .fullScreen
+        navigationController?.present(fullLyricsVC, animated: true)
+    }
+}
+
 extension MusicPlayerCoordinator: UINavigationControllerDelegate {
     func navigationController(
         _ navigationController: UINavigationController,
