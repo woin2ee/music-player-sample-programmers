@@ -44,8 +44,11 @@ class LyricsTableViewController: UITableViewController {
             }
             .store(in: &cancellables)
     }
-    
-    // MARK: - DataSource & Delegate
+}
+
+// MARK: - DataSource & Delegate
+
+extension LyricsTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lyrics.count
