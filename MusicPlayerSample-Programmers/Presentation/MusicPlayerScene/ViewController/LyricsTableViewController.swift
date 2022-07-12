@@ -40,6 +40,7 @@ class LyricsTableViewController: UITableViewController {
         viewModel.musicPublisher
             .sink { [weak self] music in
                 self?.lyrics = music?.lyrics ?? [:]
+                self?.tableView.reloadData()
             }
             .store(in: &cancellables)
     }
