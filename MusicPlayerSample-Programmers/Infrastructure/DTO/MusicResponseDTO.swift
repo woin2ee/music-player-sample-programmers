@@ -31,7 +31,12 @@ extension MusicResponseDTO {
     }
     
     func convertLyrics() -> Lyrics {
-        let result: Lyrics = [16.2:"we wish you a merry christmas", 18.3:"we wish you a merry christmas", 21.1:"we wish you a merry christmas", 23.6:"and a happy new year"]
+        var result: Lyrics = [:]
+        
+        let lyricsArr = self.lyrics.components(separatedBy: "\n")
+        lyricsArr.forEach {
+            result[$0.duration] = $0.lyrics
+        }
         
         return result
     }
