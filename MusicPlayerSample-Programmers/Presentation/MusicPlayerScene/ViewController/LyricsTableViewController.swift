@@ -14,6 +14,7 @@ final class LyricsTableViewController: UITableViewController {
     private var viewModel: MusicPlayerViewModel!
     private var lyrics: Lyrics = [:]
     private var cancellables: Set<AnyCancellable> = []
+    private var timer: Timer?
     
     // MARK: - Initializers
     
@@ -28,6 +29,11 @@ final class LyricsTableViewController: UITableViewController {
         super.viewDidLoad()
         configureTableView()
         bindViewModel()
+        playLyricsChecker()
+    }
+    
+    deinit {
+        stopLyricsChecker()
     }
     
     private func configureTableView() {
@@ -43,6 +49,25 @@ final class LyricsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             }
             .store(in: &cancellables)
+    }
+    
+    private func playLyricsChecker() {
+        timer = .scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            let lyricsTimetable = self.lyrics.sorted { $0.key < $1.key }.map { $0.key }
+            let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(self.viewModel.currentPlayTime) }) ?? 0
+            self.tableView.selectRow(
+                at: .init(row: currentLyricsIndex, section: 0),
+                animated: true,
+                scrollPosition: .top
+            )
+        }
+        timer?.tolerance = 0.2
+    }
+    
+    private func stopLyricsChecker() {
+        timer?.invalidate()
     }
 }
 

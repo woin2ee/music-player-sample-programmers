@@ -118,8 +118,7 @@ final class MusicPlayerViewController: UIViewController {
         configureSubviews()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    deinit {
         timer?.invalidate()
     }
 }
