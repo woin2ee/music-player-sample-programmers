@@ -12,7 +12,12 @@ final class LyricsTableViewController: UITableViewController {
     
     private let cellID: String = String(describing: LyricsTableViewCell.self)
     private var viewModel: MusicPlayerViewModel!
+    
     private var lyrics: Lyrics = [:]
+    private var lyricsTimetable: [Float] {
+        self.lyrics.sorted { $0.key < $1.key }.map { $0.key }
+    }
+    
     private var cancellables: Set<AnyCancellable> = []
     private var timer: Timer?
     
@@ -35,6 +40,11 @@ final class LyricsTableViewController: UITableViewController {
     deinit {
         stopLyricsChecker()
     }
+}
+
+// MARK: - Private
+
+private extension LyricsTableViewController {
     
     private func configureTableView() {
         tableView.register(LyricsTableViewCell.self, forCellReuseIdentifier: cellID)
@@ -53,21 +63,27 @@ final class LyricsTableViewController: UITableViewController {
     
     private func playLyricsChecker() {
         timer = .scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            let lyricsTimetable = self.lyrics.sorted { $0.key < $1.key }.map { $0.key }
-            let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(self.viewModel.currentPlayTime) }) ?? 0
-            self.tableView.selectRow(
-                at: .init(row: currentLyricsIndex, section: 0),
-                animated: true,
-                scrollPosition: .top
-            )
+            self?.scrollLyrics(animated: true)
         }
         timer?.tolerance = 0.2
     }
     
     private func stopLyricsChecker() {
         timer?.invalidate()
+    }
+}
+
+// MARK: - Internal
+
+extension LyricsTableViewController {
+    
+    func scrollLyrics(animated: Bool) {
+        let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }) ?? 0
+        tableView.selectRow(
+            at: .init(row: currentLyricsIndex, section: 0),
+            animated: animated,
+            scrollPosition: .top
+        )
     }
 }
 
