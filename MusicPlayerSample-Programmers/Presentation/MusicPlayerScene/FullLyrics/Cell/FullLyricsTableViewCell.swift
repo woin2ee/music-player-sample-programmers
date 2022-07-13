@@ -12,6 +12,7 @@ final class FullLyricsTableViewCell: UITableViewCell {
     lazy var lyricsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.textColor = .gray
         return label
     }()
     
