@@ -58,29 +58,23 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var lyricsTableView: UITableView = lyricsTableViewController.tableView
     
-    lazy var seekBar: UISlider = {
-        let bar = UISlider()
-        bar.minimumValue = 0
-        bar.maximumValue = viewModel.music?.duration ?? 0
-        bar.minimumTrackTintColor = .systemBlue
-        bar.maximumTrackTintColor = .systemGray4
-        bar.isContinuous = false
-        bar.addAction(
+    lazy var musicPlayerFooterView: MusicPlayerFooterView = {
+        let footer = MusicPlayerFooterView()
+        footer.seekBar.isContinuous = false
+        footer.seekBar.addAction(
             UIAction { _ in
-                self.viewModel.didUpdateSeekBar(value: bar.value)
+                self.viewModel.didUpdateSeekBar(value: footer.seekBar.value)
                 self.lyricsTableViewController.scrollLyrics(animated: false)
             },
             for: .valueChanged
         )
-        return bar
-    }()
-    
-    lazy var playAndPauseButton: UIButton = {
-        let button = UIButton(primaryAction: UIAction { _ in
-            self.viewModel.didTapPlayAndPauseButton()
-        })
-        button.tintColor = .black
-        return button
+        footer.playAndPauseButton.addAction(
+            UIAction { _ in
+                self.viewModel.didTapPlayAndPauseButton()
+            },
+            for: .touchUpInside
+        )
+        return footer
     }()
     
     // MARK: - Initializers
@@ -106,7 +100,7 @@ final class MusicPlayerViewController: UIViewController {
                 self?.musicSingerLabel.text = music?.singer
                 self?.albumImageView.image = music?.albumImage
                 self?.musicAlbumLabel.text = music?.albumTitle
-                self?.seekBar.maximumValue = music?.duration ?? 0
+                self?.musicPlayerFooterView.seekBar.maximumValue = music?.duration ?? 0
             }
             .store(in: &cancellables)
     }
@@ -141,8 +135,7 @@ private extension MusicPlayerViewController {
         view.addSubview(albumImageView)
         view.addSubview(musicAlbumLabel)
         view.addSubview(lyricsTableView)
-        view.addSubview(seekBar)
-        view.addSubview(playAndPauseButton)
+        view.addSubview(musicPlayerFooterView)
     }
     
     func setupConstraints() {
@@ -171,16 +164,12 @@ private extension MusicPlayerViewController {
         lyricsTableView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(musicAlbumLabel.snp.bottom).offset(40)
             make.height.equalTo(60)
-            make.bottom.equalTo(seekBar.snp.top).offset(-60)
+            make.bottom.equalTo(musicPlayerFooterView.snp.top).offset(-60)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        seekBar.snp.makeConstraints { make in
-            make.bottom.equalTo(playAndPauseButton.snp.top)
+        musicPlayerFooterView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
-        }
-        
-        playAndPauseButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
             make.centerX.equalToSuperview()
         }
@@ -188,9 +177,9 @@ private extension MusicPlayerViewController {
     
     func setButtonImage(_ isPlaying: Bool) {
         if isPlaying {
-            playAndPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            musicPlayerFooterView.playAndPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         } else {
-            playAndPauseButton.setImage(UIImage(named: "play"), for: .normal)
+            musicPlayerFooterView.playAndPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
     }
     
@@ -198,7 +187,7 @@ private extension MusicPlayerViewController {
         if isPlaying {
             timer = .scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
-                self.seekBar.value = Float(self.viewModel.currentPlayTime)
+                self.musicPlayerFooterView.seekBar.value = Float(self.viewModel.currentPlayTime)
             }
             tuneSeekBar()
         } else {
@@ -208,8 +197,8 @@ private extension MusicPlayerViewController {
     
     func tuneSeekBar() {
         let intervalLimit: Float = 2
-        if seekBar.value < Float(self.viewModel.currentPlayTime) - intervalLimit {
-            seekBar.value = Float(self.viewModel.currentPlayTime)
+        if musicPlayerFooterView.seekBar.value < Float(self.viewModel.currentPlayTime) - intervalLimit {
+            musicPlayerFooterView.seekBar.value = Float(self.viewModel.currentPlayTime)
         }
     }
 }
