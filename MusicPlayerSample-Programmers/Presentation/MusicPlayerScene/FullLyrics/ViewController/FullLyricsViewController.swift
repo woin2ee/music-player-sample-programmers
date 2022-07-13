@@ -113,7 +113,8 @@ private extension FullLyricsViewController {
             make.top.equalTo(fullLyricsHeaderView.snp.bottom)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(musicPlayerFooterView.snp.top).offset(-20)
+            make.height.equalTo(40 * 13)
+            make.bottom.lessThanOrEqualTo(musicPlayerFooterView.snp.top).offset(-10)
         }
         
         musicPlayerFooterView.snp.makeConstraints { make in
