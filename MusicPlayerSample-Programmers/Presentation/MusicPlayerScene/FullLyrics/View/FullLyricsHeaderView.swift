@@ -34,7 +34,7 @@ final class FullLyricsHeaderView: UIView {
     }()
     
     lazy var dismissButton: UIButton = {
-        var config = UIButton.Configuration.tinted()
+        var config = UIButton.Configuration.plain()
         config.title = "X"
         config.baseForegroundColor = .black
         return UIButton(configuration: config)
@@ -67,13 +67,12 @@ private extension FullLyricsHeaderView {
     func setupConstraints() {
         musicTitleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
         }
         
         musicSingerLabel.snp.makeConstraints { make in
-            make.top.equalTo(musicTitleLabel.snp.bottom).offset(4)
+            make.top.equalTo(musicTitleLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
         }
         
         dismissButton.snp.makeConstraints { make in
