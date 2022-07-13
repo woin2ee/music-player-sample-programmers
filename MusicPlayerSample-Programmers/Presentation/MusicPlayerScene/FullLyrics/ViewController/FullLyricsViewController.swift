@@ -23,8 +23,8 @@ final class FullLyricsViewController: UIViewController {
     
     convenience init(viewModel: MusicPlayerViewModel) {
         self.init(nibName: nil, bundle: nil)
-        self.fullLyricsTableViewController = FullLyricsTableViewController()
         self.viewModel = viewModel
+        self.fullLyricsTableViewController = FullLyricsTableViewController(viewModel: self.viewModel)
         self.bindViewModel()
     }
     
