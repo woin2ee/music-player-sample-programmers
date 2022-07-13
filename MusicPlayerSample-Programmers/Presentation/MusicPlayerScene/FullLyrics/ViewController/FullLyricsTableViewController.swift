@@ -58,14 +58,14 @@ private extension FullLyricsTableViewController {
             .store(in: &cancellables)
     }
     
-    private func playLyricsChecker() {
+    func playLyricsChecker() {
         timer = .scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             self?.scrollLyrics(animated: true)
         }
         timer?.tolerance = 0.2
     }
     
-    private func stopLyricsChecker() {
+    func stopLyricsChecker() {
         timer?.invalidate()
     }
     
