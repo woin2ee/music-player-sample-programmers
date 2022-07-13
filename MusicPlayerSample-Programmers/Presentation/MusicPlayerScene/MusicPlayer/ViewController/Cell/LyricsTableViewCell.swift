@@ -8,11 +8,12 @@
 import UIKit
 import SnapKit
 
-class LyricsTableViewCell: UITableViewCell {
+final class LyricsTableViewCell: UITableViewCell {
     
     lazy var lyricsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
     
@@ -29,6 +30,19 @@ class LyricsTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.setRegular()
+    }
+    
+    func setBold() {
+        lyricsLabel.font = .systemFont(ofSize: 16, weight: .bold)
+    }
+    
+    func setRegular() {
+        lyricsLabel.font = .systemFont(ofSize: 16, weight: .regular)
     }
 }
 

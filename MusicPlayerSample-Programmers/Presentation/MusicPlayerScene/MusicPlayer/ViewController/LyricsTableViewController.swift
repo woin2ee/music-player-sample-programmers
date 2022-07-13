@@ -64,10 +64,11 @@ private extension LyricsTableViewController {
     }
     
     func playLyricsChecker() {
-        timer = .scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
+        timer = .scheduledTimer(withTimeInterval: 0.3, repeats: true) { [weak self] _ in
             self?.scrollLyrics(animated: true)
+            self?.makeCurrentLyricsBold()
         }
-        timer?.tolerance = 0.2
+        timer?.tolerance = 0.1
     }
     
     func stopLyricsChecker() {
@@ -86,6 +87,16 @@ extension LyricsTableViewController {
             animated: animated,
             scrollPosition: .top
         )
+    }
+    
+    func makeCurrentLyricsBold() {
+        guard
+            let _ = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }),
+            let currentCell = tableView.visibleCells[0] as? LyricsTableViewCell,
+            let nextCell = tableView.visibleCells[1] as? LyricsTableViewCell
+        else { return }
+        currentCell.setBold()
+        nextCell.setRegular()
     }
 }
 

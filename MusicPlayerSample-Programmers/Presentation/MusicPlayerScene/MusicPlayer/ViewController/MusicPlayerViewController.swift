@@ -66,6 +66,7 @@ final class MusicPlayerViewController: UIViewController {
             UIAction { _ in
                 self.viewModel.didUpdateSeekBar(value: footer.seekBar.value)
                 self.lyricsTableViewController.scrollLyrics(animated: false)
+                self.lyricsTableViewController.makeCurrentLyricsBold()
             },
             for: .valueChanged
         )
