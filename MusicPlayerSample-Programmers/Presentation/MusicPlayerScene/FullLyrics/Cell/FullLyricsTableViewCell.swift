@@ -9,10 +9,13 @@ import UIKit
 
 final class FullLyricsTableViewCell: UITableViewCell {
 
+    private let lyricsFontSize: CGFloat = 18
+    
     lazy var lyricsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = .gray
+        label.font = .systemFont(ofSize: lyricsFontSize, weight: .regular)
         return label
     }()
     
@@ -29,6 +32,14 @@ final class FullLyricsTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
+    }
+    
+    func setBold() {
+        lyricsLabel.font = .systemFont(ofSize: lyricsFontSize, weight: .bold)
+    }
+    
+    func setRegular() {
+        lyricsLabel.font = .systemFont(ofSize: lyricsFontSize, weight: .regular)
     }
 }
 

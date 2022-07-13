@@ -10,10 +10,12 @@ import SnapKit
 
 final class LyricsTableViewCell: UITableViewCell {
     
+    private let lyricsFontSize: CGFloat = 16
+    
     lazy var lyricsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = .systemFont(ofSize: lyricsFontSize, weight: .regular)
         return label
     }()
     
@@ -38,11 +40,11 @@ final class LyricsTableViewCell: UITableViewCell {
     }
     
     func setBold() {
-        lyricsLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        lyricsLabel.font = .systemFont(ofSize: lyricsFontSize, weight: .bold)
     }
     
     func setRegular() {
-        lyricsLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        lyricsLabel.font = .systemFont(ofSize: lyricsFontSize, weight: .regular)
     }
 }
 
