@@ -64,7 +64,7 @@ private extension FullLyricsViewController {
         fullLyricsTableView.snp.makeConstraints { make in
             make.top.equalTo(fullLyricsHeaderView.snp.bottom)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-60)
+            make.trailing.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-100)
         }
     }

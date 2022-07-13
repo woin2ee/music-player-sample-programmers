@@ -38,6 +38,7 @@ private extension FullLyricsTableViewCell {
         
         lyricsLabel.snp.makeConstraints { make in
             make.leading.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-50)
         }
     }
 }
