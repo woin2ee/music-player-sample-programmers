@@ -46,15 +46,16 @@ final class LyricsTableViewController: UITableViewController {
 
 private extension LyricsTableViewController {
     
-    private func configureTableView() {
+    func configureTableView() {
         tableView.register(LyricsTableViewCell.self, forCellReuseIdentifier: cellID)
         tableView.separatorColor = .clear
         tableView.showsVerticalScrollIndicator = false
         tableView.isScrollEnabled = false
     }
     
-    private func bindViewModel() {
+    func bindViewModel() {
         viewModel.musicPublisher
+            .dropFirst()
             .sink { [weak self] music in
                 self?.lyrics = music?.lyrics ?? [:]
                 self?.tableView.reloadData()
@@ -62,14 +63,14 @@ private extension LyricsTableViewController {
             .store(in: &cancellables)
     }
     
-    private func playLyricsChecker() {
+    func playLyricsChecker() {
         timer = .scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             self?.scrollLyrics(animated: true)
         }
         timer?.tolerance = 0.2
     }
     
-    private func stopLyricsChecker() {
+    func stopLyricsChecker() {
         timer?.invalidate()
     }
 }
