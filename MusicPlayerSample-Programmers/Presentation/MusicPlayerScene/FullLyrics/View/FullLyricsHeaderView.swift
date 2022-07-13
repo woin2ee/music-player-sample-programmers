@@ -52,19 +52,19 @@ final class FullLyricsHeaderView: UIView {
 
 private extension FullLyricsHeaderView {
     
-    private func configureSubviews() {
+    func configureSubviews() {
         self.backgroundColor = .white
         addSubviews()
         setupConstraints()
     }
     
-    private func addSubviews() {
+    func addSubviews() {
         self.addSubview(musicTitleLabel)
         self.addSubview(musicSingerLabel)
         self.addSubview(dismissButton)
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         musicTitleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
             make.top.equalToSuperview()
