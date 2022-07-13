@@ -60,6 +60,7 @@ final class MusicPlayerViewController: UIViewController {
     
     lazy var musicPlayerFooterView: MusicPlayerFooterView = {
         let footer = MusicPlayerFooterView()
+        footer.seekBar.maximumValue = viewModel.music?.duration ?? 0
         footer.seekBar.isContinuous = false
         footer.seekBar.addAction(
             UIAction { _ in
