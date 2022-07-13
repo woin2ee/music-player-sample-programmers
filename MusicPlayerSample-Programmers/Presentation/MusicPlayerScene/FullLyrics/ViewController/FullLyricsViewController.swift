@@ -20,6 +20,8 @@ final class FullLyricsViewController: UIViewController {
     
     lazy var fullLyricsHeaderView: FullLyricsHeaderView = {
         let header = FullLyricsHeaderView()
+        header.musicTitleLabel.text = viewModel.music?.title
+        header.musicSingerLabel.text = viewModel.music?.singer
         header.dismissButton.addAction(
             UIAction { _ in
                 self.dismiss(animated: true)
@@ -65,6 +67,14 @@ final class FullLyricsViewController: UIViewController {
             .sink { [weak self] isPlaying in
                 self?.setButtonImage(isPlaying)
                 self?.controlSeekBar(isPlaying)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.musicPublisher
+            .sink { [weak self] music in
+                self?.fullLyricsHeaderView.musicTitleLabel.text = music?.title
+                self?.fullLyricsHeaderView.musicSingerLabel.text = music?.singer
+                self?.musicPlayerFooterView.seekBar.maximumValue = music?.duration ?? 0
             }
             .store(in: &cancellables)
     }
