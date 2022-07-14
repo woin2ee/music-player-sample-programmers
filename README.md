@@ -3,7 +3,7 @@
 
 ## Screenshot
 
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/81426024/177744786-96d3b1cf-c8a2-40ad-a4c1-d2cba40dacbb.png"><img width="300" alt="image" src="https://user-images.githubusercontent.com/81426024/177744800-128c8ee8-4be3-4cbe-aadc-b969949d96b6.png">
+<img width="250" alt="image" src="https://user-images.githubusercontent.com/81426024/177744786-96d3b1cf-c8a2-40ad-a4c1-d2cba40dacbb.png"><img width="250" alt="image" src="https://user-images.githubusercontent.com/81426024/179040204-d83b8a37-add4-4dd0-b72b-80e871e344a4.png"><img width="250" alt="image" src="https://user-images.githubusercontent.com/81426024/179040588-db7e5dd7-c6bc-4808-9414-6285383dcc2f.png">
 
 ## Tech
 
