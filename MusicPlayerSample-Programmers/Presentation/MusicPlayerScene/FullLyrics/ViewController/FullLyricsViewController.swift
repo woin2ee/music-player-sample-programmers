@@ -33,6 +33,15 @@ final class FullLyricsViewController: UIViewController {
     
     lazy var fullLyricsTableView: UITableView = fullLyricsTableViewController.tableView
     
+    lazy var selectLyricsToggleButton: UIButton = {
+        let button = UIButton(primaryAction: UIAction { _ in
+            self.toggleSelectable()
+        })
+        button.setImage(UIImage(systemName: "music.note.list"), for: .normal)
+        button.tintColor = .systemGray2
+        return button
+    }()
+    
     lazy var musicPlayerFooterView: MusicPlayerFooterView = {
         let footer = MusicPlayerFooterView()
         footer.seekBar.maximumValue = viewModel.music?.duration ?? 0
@@ -78,6 +87,12 @@ final class FullLyricsViewController: UIViewController {
                 self?.musicPlayerFooterView.seekBar.maximumValue = music?.duration ?? 0
             }
             .store(in: &cancellables)
+        
+        viewModel.currentPlayTimeSubject
+            .sink { [weak self] currentPlayTime in
+                self?.musicPlayerFooterView.seekBar.value = Float(currentPlayTime)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Life Cycle
@@ -101,6 +116,7 @@ private extension FullLyricsViewController {
     func addSubviews() {
         view.addSubview(fullLyricsHeaderView)
         view.addSubview(fullLyricsTableView)
+        view.addSubview(selectLyricsToggleButton)
         view.addSubview(musicPlayerFooterView)
     }
     
@@ -122,6 +138,11 @@ private extension FullLyricsViewController {
             make.leading.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
             make.centerX.equalToSuperview()
+        }
+        
+        selectLyricsToggleButton.snp.makeConstraints { make in
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-12)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(100)
         }
     }
     
@@ -149,6 +170,15 @@ private extension FullLyricsViewController {
         let intervalLimit: Float = 2
         if musicPlayerFooterView.seekBar.value < Float(self.viewModel.currentPlayTime) - intervalLimit {
             musicPlayerFooterView.seekBar.value = Float(self.viewModel.currentPlayTime)
+        }
+    }
+    
+    func toggleSelectable() {
+        fullLyricsTableViewController.isSelectableLyrics.toggle()
+        if fullLyricsTableViewController.isSelectableLyrics {
+            selectLyricsToggleButton.tintColor = .black
+        } else {
+            selectLyricsToggleButton.tintColor = .systemGray2
         }
     }
 }

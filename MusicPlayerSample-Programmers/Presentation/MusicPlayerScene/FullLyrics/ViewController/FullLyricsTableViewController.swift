@@ -18,11 +18,12 @@ final class FullLyricsTableViewController: UITableViewController {
         self.lyrics.sorted { $0.key < $1.key }.map { $0.key }
     }
     private var currentLyricsIndex: Array<Float>.Index? {
-        lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) })
+        lyricsTimetable.lastIndex(where: { $0 <= Float(viewModel.currentPlayTime) })
     }
     
     private var cancellables: Set<AnyCancellable> = []
     private var timer: Timer?
+    var isSelectableLyrics: Bool = false
     
     // MARK: - Initializers
     
@@ -125,5 +126,12 @@ extension FullLyricsTableViewController {
         } else {
             cell.setRegular()
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard isSelectableLyrics else { return }
+        setRegularAllCell()
+        viewModel.setCurrentPlayTime(value: Double(lyricsTimetable[indexPath.row]))
+        viewModel.didTapLyricsAtFullLyricsView()
     }
 }

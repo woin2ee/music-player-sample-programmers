@@ -12,6 +12,8 @@ import AVFAudio
 protocol MusicPlayerViewModelInput {
     func didLoad()
     func didUpdateSeekBar(value: Float)
+    func setCurrentPlayTime(value: Double)
+    func didTapLyricsAtFullLyricsView()
     func didTapPlayAndPauseButton()
     func didTapLyrics()
 }
@@ -24,6 +26,7 @@ protocol MusicPlayerViewModelOutput {
     var isPlayingPublisher: AnyPublisher<Bool, Never> { get }
     
     var currentPlayTime: TimeInterval { get }
+    var currentPlayTimeSubject: PassthroughSubject<TimeInterval, Never> { get }
 }
 
 protocol MusicPlayerViewModel: MusicPlayerViewModelInput, MusicPlayerViewModelOutput {}
@@ -46,6 +49,7 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     var isPlayingPublisher: AnyPublisher<Bool, Never> { $isPlaying.eraseToAnyPublisher() }
     
     var currentPlayTime: TimeInterval { audioPlayer?.currentTime ?? 0 }
+    var currentPlayTimeSubject: PassthroughSubject<TimeInterval, Never> = .init()
     
     // MARK: - Initializers
     
@@ -66,7 +70,19 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     // MARK: - Input
     
     func didUpdateSeekBar(value: Float) {
-        audioPlayer?.currentTime = Double(value)
+        self.setCurrentPlayTime(value: Double(value))
+    }
+    
+    func setCurrentPlayTime(value: Double) {
+        audioPlayer?.currentTime = value
+    }
+    
+    func didTapLyricsAtFullLyricsView() {
+        guard let audioPlayer = audioPlayer else {
+            return
+        }
+        
+        currentPlayTimeSubject.send(audioPlayer.currentTime)
     }
     
     func didTapPlayAndPauseButton() {
