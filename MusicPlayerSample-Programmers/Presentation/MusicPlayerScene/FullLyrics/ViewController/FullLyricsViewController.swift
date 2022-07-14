@@ -184,47 +184,9 @@ private extension FullLyricsViewController {
         fullLyricsTableViewController.isSelectableLyrics.toggle()
         if fullLyricsTableViewController.isSelectableLyrics {
             selectLyricsToggleButton.tintColor = .black
-            showSelectableLyricsAlert(message: "가사를 터치한 구간부터 재생됩니다.")
+            DefaultAlert.show(view: self.view, message: "가사를 터치한 구간부터 재생됩니다.")
         } else {
             selectLyricsToggleButton.tintColor = .systemGray2
         }
-    }
-    
-    func showSelectableLyricsAlert(message : String) {
-        let width: CGFloat = 300
-        let height: CGFloat = 35
-        
-        let toastLabel: UILabel = {
-            let lbl = UILabel(
-                frame: CGRect(
-                    x: self.view.frame.size.width / 2 - (width / 2),
-                    y: self.view.frame.size.height - 250,
-                    width: width,
-                    height: height
-                )
-            )
-            lbl.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-            lbl.textColor = UIColor.white
-            lbl.font = .systemFont(ofSize: 16, weight: .regular)
-            lbl.textAlignment = .center;
-            lbl.text = message
-            lbl.alpha = 1.0
-            lbl.layer.cornerRadius = 10;
-            lbl.clipsToBounds = true
-            return lbl
-        }()
-        
-        self.view.addSubview(toastLabel)
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 1.5,
-            options: .curveEaseOut,
-            animations: {
-                toastLabel.alpha = 0.0
-            },
-            completion: { _ in
-                toastLabel.removeFromSuperview()
-            }
-        )
     }
 }

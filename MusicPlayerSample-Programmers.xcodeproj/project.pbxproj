@@ -36,6 +36,7 @@
 		E87CB40A286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */; };
 		E87EE500287C34B5000120B5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EE4FF287C34B5000120B5 /* NetworkService.swift */; };
 		E87EE502287C3951000120B5 /* MusicResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EE501287C3951000120B5 /* MusicResponseDTO.swift */; };
+		E8E1F3DE28802D3200D53BFF /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E1F3DD28802D3200D53BFF /* DefaultAlert.swift */; };
 		E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */; };
 		E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E87EE4FF287C34B5000120B5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E87EE501287C3951000120B5 /* MusicResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicResponseDTO.swift; sourceTree = "<group>"; };
+		E8E1F3DD28802D3200D53BFF /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
 		E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
 		E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EAC817E796BD927E5D446251 /* Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayerSample-ProgrammersTests/Pods-MusicPlayerSample-ProgrammersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				E820B2DA286DB0520071F7AC /* AppCoordinator.swift */,
+				E8E1F3DD28802D3200D53BFF /* DefaultAlert.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				E87EE500287C34B5000120B5 /* NetworkService.swift in Sources */,
 				E820B2D9286DB03E0071F7AC /* SplashCoordinator.swift in Sources */,
 				E86DC4132877092F0016DCE4 /* LyricsTableViewCell.swift in Sources */,
+				E8E1F3DE28802D3200D53BFF /* DefaultAlert.swift in Sources */,
 				E861115528719235005A088B /* DefaultMusicRepository.swift in Sources */,
 				E85A0E9D287EA18300326F60 /* FullLyricsHeaderView.swift in Sources */,
 				E820B2D1286DAF4E0071F7AC /* SplashViewController.swift in Sources */,
