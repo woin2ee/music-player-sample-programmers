@@ -379,10 +379,10 @@
 		E87CB3E5286DAA3A0009311F /* MusicPlayerSample-Programmers */ = {
 			isa = PBXGroup;
 			children = (
-				E811F125287D4D5A0058856D /* Extension */,
 				E87CB417286DAA540009311F /* Application */,
 				E861114D2871909D005A088B /* Data */,
 				E861114E287190A5005A088B /* Domain */,
+				E811F125287D4D5A0058856D /* Extension */,
 				E87EE4FE287C344A000120B5 /* Infrastructure */,
 				E87CB416286DAA520009311F /* Presentation */,
 				E87CB418286DAA620009311F /* Resources */,
