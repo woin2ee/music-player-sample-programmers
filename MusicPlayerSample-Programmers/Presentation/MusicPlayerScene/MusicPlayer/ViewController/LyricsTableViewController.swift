@@ -125,4 +125,9 @@ extension LyricsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didTapLyrics()
     }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? LyricsTableViewCell else { return }
+        cell.setRegular()
+    }
 }
