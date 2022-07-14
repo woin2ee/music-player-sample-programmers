@@ -112,6 +112,14 @@ final class MusicPlayerViewController: UIViewController {
                 DefaultAlert.show(view: self.view, message: errorMessage)
             }
             .store(in: &cancellables)
+        
+        viewModel.playRepeatRequest
+            .sink { [weak self] _ in
+                self?.musicPlayerFooterView.seekBar.value = 0
+                self?.lyricsTableViewController.scrollLyrics(animated: false)
+                self?.musicPlayerFooterView.playAndPauseButton.sendActions(for: .touchUpInside)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Life Cycle

@@ -30,16 +30,19 @@ protocol MusicPlayerViewModelOutput {
     
     var fullLyricsViewDismissRequest: PassthroughSubject<Void, Never> { get }
     var showErrorAlertRequest: PassthroughSubject<String, Never> { get }
+    var playRepeatRequest: PassthroughSubject<Void, Never> { get }
 }
 
 protocol MusicPlayerViewModel: MusicPlayerViewModelInput, MusicPlayerViewModelOutput {}
 
-final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
+final class DefaultMusicPlayerViewModel: NSObject, MusicPlayerViewModel {
     
     private let musicRepository: MusicRepository
     private let coordinator: MusicPlayerCoordinator
     
-    private var audioPlayer: AVAudioPlayer?
+    private var audioPlayer: AVAudioPlayer? {
+        didSet { audioPlayer?.delegate = self }
+    }
     
     // MARK: - Output
     
@@ -47,6 +50,7 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
         didSet { updateMusicInAudioPlayer() }
     }
     @Published private(set) var isPlaying: Bool = false
+    private var isRepeat: Bool = true
     
     var musicPublisher: AnyPublisher<Music?, Never> { $music.eraseToAnyPublisher() }
     var isPlayingPublisher: AnyPublisher<Bool, Never> { $isPlaying.eraseToAnyPublisher() }
@@ -56,6 +60,7 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     
     var fullLyricsViewDismissRequest: PassthroughSubject<Void, Never> = .init()
     var showErrorAlertRequest: PassthroughSubject<String, Never> = .init()
+    var playRepeatRequest: PassthroughSubject<Void, Never> = .init()
     
     // MARK: - Initializers
     
@@ -122,5 +127,13 @@ private extension DefaultMusicPlayerViewModel {
             let errorMessage = "잘못된 음악 파일입니다."
             self.showErrorAlertRequest.send(errorMessage)
         }
+    }
+}
+
+extension DefaultMusicPlayerViewModel: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        isPlaying = false
+        if isRepeat { playRepeatRequest.send() }
     }
 }
