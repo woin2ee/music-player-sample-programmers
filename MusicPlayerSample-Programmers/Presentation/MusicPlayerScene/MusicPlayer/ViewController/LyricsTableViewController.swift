@@ -17,6 +17,10 @@ final class LyricsTableViewController: UITableViewController {
     private var lyricsTimetable: [Float] {
         self.lyrics.sorted { $0.key < $1.key }.map { $0.key }
     }
+    private var currentLyricsIndex: Array<Float>.Index? {
+        lyricsTimetable.lastIndex(where: { $0 <= Float(viewModel.currentPlayTime) })
+    }
+
     
     private var cancellables: Set<AnyCancellable> = []
     private var timer: Timer?
@@ -81,7 +85,7 @@ private extension LyricsTableViewController {
 extension LyricsTableViewController {
     
     func scrollLyrics(animated: Bool) {
-        let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }) ?? 0
+        let currentLyricsIndex = currentLyricsIndex ?? 0
         tableView.selectRow(
             at: .init(row: currentLyricsIndex, section: 0),
             animated: animated,
@@ -91,7 +95,7 @@ extension LyricsTableViewController {
     
     func makeCurrentLyricsBold() {
         guard
-            let _ = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }),
+            let _ = currentLyricsIndex,
             let currentCell = tableView.visibleCells[0] as? LyricsTableViewCell,
             let nextCell = tableView.visibleCells[1] as? LyricsTableViewCell
         else { return }
