@@ -209,6 +209,7 @@ private extension MusicPlayerViewController {
         if isPlaying {
             timer = .scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
+                if self.musicPlayerFooterView.seekBar.isTouchInside { return }
                 self.musicPlayerFooterView.seekBar.value = Float(self.viewModel.currentPlayTime)
             }
             tuneSeekBar()
