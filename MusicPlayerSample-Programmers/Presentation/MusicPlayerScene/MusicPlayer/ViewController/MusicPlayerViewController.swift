@@ -33,7 +33,7 @@ final class MusicPlayerViewController: UIViewController {
     lazy var musicSingerLabel: MarqueeLabel = {
         let lbl = MarqueeLabel()
         lbl.text = viewModel.music?.singer
-        lbl.font = .systemFont(ofSize: 16, weight: .regular)
+        lbl.font = .systemFont(ofSize: 17, weight: .regular)
         lbl.textAlignment = .center
         lbl.speed = .duration(10.0)
         lbl.fadeLength = 10.0
@@ -172,19 +172,19 @@ private extension MusicPlayerViewController {
             make.leading.trailing.equalToSuperview()
         }
         
-        albumImageView.snp.makeConstraints { make in
-            make.width.equalTo(albumImageView.snp.height).offset(100)
-            make.top.equalTo(musicSingerLabel.snp.bottom).offset(38)
-            make.leading.trailing.equalToSuperview().inset(22)
-        }
-        
         musicAlbumLabel.snp.makeConstraints { make in
-            make.top.equalTo(albumImageView.snp.bottom).offset(12)
+            make.top.equalTo(musicSingerLabel.snp.bottom).offset(14)
             make.leading.trailing.equalToSuperview()
         }
         
+        albumImageView.snp.makeConstraints { make in
+            make.width.equalTo(albumImageView.snp.height).offset(100)
+            make.top.equalTo(musicAlbumLabel.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(22)
+        }
+        
         lyricsTableView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(musicAlbumLabel.snp.bottom).offset(40)
+            make.top.greaterThanOrEqualTo(albumImageView.snp.bottom).offset(40)
             make.height.equalTo(60)
             make.bottom.equalTo(musicPlayerFooterView.snp.top).offset(-60)
             make.leading.trailing.equalToSuperview().inset(20)
