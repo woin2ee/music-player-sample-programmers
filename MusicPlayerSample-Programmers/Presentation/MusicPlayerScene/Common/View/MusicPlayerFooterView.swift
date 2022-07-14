@@ -10,12 +10,13 @@ import SnapKit
 
 final class MusicPlayerFooterView: UIView {
     
-    lazy var seekBar: UISlider = {
-        let bar = UISlider()
+    lazy var seekBar: SeekBar = {
+        let bar = SeekBar()
         bar.minimumValue = 0
         bar.maximumValue = 1
-        bar.minimumTrackTintColor = .systemBlue
+        bar.minimumTrackTintColor = .systemPurple
         bar.maximumTrackTintColor = .systemGray4
+        bar.thumbTintColor = .clear
         return bar
     }()
     
