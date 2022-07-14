@@ -81,7 +81,7 @@ private extension LyricsTableViewController {
 extension LyricsTableViewController {
     
     func scrollLyrics(animated: Bool) {
-        guard let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }) else { return }
+        let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }) ?? 0
         tableView.selectRow(
             at: .init(row: currentLyricsIndex, section: 0),
             animated: animated,
