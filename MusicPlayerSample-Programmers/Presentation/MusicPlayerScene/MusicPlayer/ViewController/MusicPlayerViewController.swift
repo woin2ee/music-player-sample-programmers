@@ -115,6 +115,11 @@ final class MusicPlayerViewController: UIViewController {
         configureSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        musicPlayerFooterView.seekBar.value = Float(viewModel.currentPlayTime)
+    }
+    
     deinit {
         debugPrint("deinit : \(Self.description())")
         timer?.invalidate()
