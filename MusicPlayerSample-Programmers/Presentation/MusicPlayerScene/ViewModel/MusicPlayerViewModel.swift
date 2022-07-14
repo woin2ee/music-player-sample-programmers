@@ -29,6 +29,7 @@ protocol MusicPlayerViewModelOutput {
     var currentPlayTimeSubject: PassthroughSubject<TimeInterval, Never> { get }
     
     var fullLyricsViewDismissRequest: PassthroughSubject<Void, Never> { get }
+    var showErrorAlertRequest: PassthroughSubject<String, Never> { get }
 }
 
 protocol MusicPlayerViewModel: MusicPlayerViewModelInput, MusicPlayerViewModelOutput {}
@@ -54,6 +55,7 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     var currentPlayTimeSubject: PassthroughSubject<TimeInterval, Never> = .init()
     
     var fullLyricsViewDismissRequest: PassthroughSubject<Void, Never> = .init()
+    var showErrorAlertRequest: PassthroughSubject<String, Never> = .init()
     
     // MARK: - Initializers
     
@@ -66,8 +68,13 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     }
     
     func didLoad() {
-        self.musicRepository.fetchMusic { music in
-            self.music = music
+        self.musicRepository.fetchMusic { result in
+            switch result {
+            case .success(let music):
+                self.music = music
+            case .failure(.invalidURL(let errorMessage)), .failure(.failDecoding(let errorMessage)):
+                self.showErrorAlertRequest.send(errorMessage)
+            }
         }
     }
     
@@ -112,8 +119,8 @@ private extension DefaultMusicPlayerViewModel {
             audioPlayer = try .init(data: music?.file ?? Data())
             audioPlayer?.prepareToPlay()
         } catch {
-            // FIXME: 에러 처리 필요
-            debugPrint("잘못된 음악 파일입니다.")
+            let errorMessage = "잘못된 음악 파일입니다."
+            self.showErrorAlertRequest.send(errorMessage)
         }
     }
 }

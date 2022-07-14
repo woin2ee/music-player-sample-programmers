@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MusicRepository {
-    func fetchMusic(_ completion: @escaping (Music) -> Void)
+    func fetchMusic(_ completion: @escaping (Result<Music, NetworkError>) -> Void)
 }

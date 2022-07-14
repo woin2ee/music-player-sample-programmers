@@ -19,15 +19,30 @@ struct MusicResponseDTO: Codable {
 
 extension MusicResponseDTO {
     func toEntity() -> Music {
-        return .init(
+        var music = Music(
             title: self.title,
             singer: self.singer,
             albumTitle: self.album,
-            albumImage: UIImage(data: try! Data(contentsOf: URL(string: self.image)!))!,
-            file: try! Data(contentsOf: URL(string: self.file)!),
+            albumImage: UIImage(), // Set default album image
+            file: Data(),
             lyrics: convertLyrics(),
             duration: Float(self.duration)
         )
+        
+        if let albumImageURL = URL(string: self.image),
+           let albumImageData = try? Data(contentsOf: albumImageURL),
+           let albumImage = UIImage(data: albumImageData)
+        {
+            music.albumImage = albumImage
+        }
+        
+        if let musicFileURL = URL(string: self.file),
+           let musicFile = try? Data(contentsOf: musicFileURL)
+        {
+            music.file = musicFile
+        }
+        
+        return music
     }
     
     func convertLyrics() -> Lyrics {

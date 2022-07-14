@@ -17,8 +17,7 @@ final class DefaultMusicRepository: MusicRepository {
         self.networkService = networkService
     }
     
-    func fetchMusic(_ completion: @escaping (Music) -> Void) {
-        let url = URL(string: "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/song.json")!
-        return networkService.request(url: url, completion)
+    func fetchMusic(_ completion: @escaping (Result<Music, NetworkError>) -> Void) {
+        return networkService.request(completion)
     }
 }

@@ -13,8 +13,8 @@ struct Music {
     let title: String
     let singer: String
     let albumTitle: String
-    let albumImage: UIImage
-    let file: Data
+    var albumImage: UIImage
+    var file: Data
     let lyrics: Lyrics
     let duration: Float
 }

@@ -105,6 +105,13 @@ final class MusicPlayerViewController: UIViewController {
                 self?.musicPlayerFooterView.seekBar.maximumValue = music?.duration ?? 0
             }
             .store(in: &cancellables)
+        
+        viewModel.showErrorAlertRequest
+            .sink { [weak self] errorMessage in
+                guard let self = self else { return }
+                DefaultAlert.show(view: self.view, message: errorMessage)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Life Cycle
