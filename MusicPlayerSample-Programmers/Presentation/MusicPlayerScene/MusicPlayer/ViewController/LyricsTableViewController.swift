@@ -85,6 +85,7 @@ private extension LyricsTableViewController {
 extension LyricsTableViewController {
     
     func scrollLyrics(animated: Bool) {
+        guard lyrics.count > 0 else { return }
         let currentLyricsIndex = currentLyricsIndex ?? 0
         tableView.selectRow(
             at: .init(row: currentLyricsIndex, section: 0),
