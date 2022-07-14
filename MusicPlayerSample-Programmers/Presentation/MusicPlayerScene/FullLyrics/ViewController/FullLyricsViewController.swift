@@ -40,7 +40,8 @@ final class FullLyricsViewController: UIViewController {
         footer.seekBar.addAction(
             UIAction { _ in
                 self.viewModel.didUpdateSeekBar(value: footer.seekBar.value)
-//                self.lyricsTableViewController.scrollLyrics(animated: false)
+                self.fullLyricsTableViewController.setRegularAllCell()
+                self.fullLyricsTableViewController.setHighlightLyrics()
             },
             for: .valueChanged
         )

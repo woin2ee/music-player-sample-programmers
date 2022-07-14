@@ -17,6 +17,9 @@ final class FullLyricsTableViewController: UITableViewController {
     private var lyricsTimetable: [Float] {
         self.lyrics.sorted { $0.key < $1.key }.map { $0.key }
     }
+    private var currentLyricsIndex: Array<Float>.Index? {
+        lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) })
+    }
     
     private var cancellables: Set<AnyCancellable> = []
     private var timer: Timer?
@@ -35,6 +38,11 @@ final class FullLyricsTableViewController: UITableViewController {
         super.viewDidLoad()
         configureTableView()
         bindViewModel()
+        playLyricsChecker()
+    }
+    
+    deinit {
+        stopLyricsChecker()
     }
 }
 
@@ -59,23 +67,33 @@ private extension FullLyricsTableViewController {
     }
     
     func playLyricsChecker() {
-        timer = .scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
-            self?.scrollLyrics(animated: true)
+        timer = .scheduledTimer(withTimeInterval: 0.3, repeats: true) { [weak self] _ in
+            self?.setHighlightLyrics()
         }
-        timer?.tolerance = 0.2
+        timer?.tolerance = 0.1
     }
     
     func stopLyricsChecker() {
         timer?.invalidate()
     }
+}
+
+// MARK: - Internal
+
+extension FullLyricsTableViewController {
     
-    func scrollLyrics(animated: Bool) {
-        guard let currentLyricsIndex = lyricsTimetable.lastIndex(where: { $0 < Float(viewModel.currentPlayTime) }) else { return }
-        tableView.selectRow(
-            at: .init(row: currentLyricsIndex, section: 0),
-            animated: animated,
-            scrollPosition: .top
-        )
+    func setRegularAllCell() {
+        tableView.visibleCells.compactMap { $0 as? FullLyricsTableViewCell }.forEach {
+            $0.setRegular()
+        }
+    }
+    
+    func setHighlightLyrics() {
+        guard let currentLyricsIndex = currentLyricsIndex else { return }
+        let currentCell = tableView.cellForRow(at: .init(row: currentLyricsIndex, section: 0)) as? FullLyricsTableViewCell
+        let prevCell = tableView.cellForRow(at: .init(row: currentLyricsIndex - 1, section: 0)) as? FullLyricsTableViewCell
+        currentCell?.setBold()
+        prevCell?.setRegular()
     }
 }
 
@@ -98,5 +116,14 @@ extension FullLyricsTableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? FullLyricsTableViewCell else { return }
+        if indexPath.row == currentLyricsIndex {
+            cell.setBold()
+        } else {
+            cell.setRegular()
+        }
     }
 }

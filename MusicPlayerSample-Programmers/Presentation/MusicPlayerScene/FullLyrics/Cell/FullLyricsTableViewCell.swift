@@ -34,6 +34,11 @@ final class FullLyricsTableViewCell: UITableViewCell {
         super.setSelected(false, animated: false)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.setRegular()
+    }
+    
     func setBold() {
         lyricsLabel.font = .systemFont(ofSize: lyricsFontSize, weight: .bold)
     }
