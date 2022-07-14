@@ -94,6 +94,12 @@ final class FullLyricsViewController: UIViewController {
                 self?.musicPlayerFooterView.seekBar.value = Float(currentPlayTime)
             }
             .store(in: &cancellables)
+        
+        viewModel.fullLyricsViewDismissRequest
+            .sink { [weak self] _ in
+                self?.dismiss(animated: true)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Life Cycle

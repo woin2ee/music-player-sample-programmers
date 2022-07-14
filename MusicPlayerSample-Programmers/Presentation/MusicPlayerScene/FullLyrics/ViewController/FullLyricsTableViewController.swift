@@ -129,9 +129,12 @@ extension FullLyricsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard isSelectableLyrics else { return }
-        setRegularAllCell()
-        viewModel.setCurrentPlayTime(value: Double(lyricsTimetable[indexPath.row]))
-        viewModel.didTapLyricsAtFullLyricsView()
+        if isSelectableLyrics {
+            setRegularAllCell()
+            viewModel.setCurrentPlayTime(value: Double(lyricsTimetable[indexPath.row]))
+            viewModel.didTapLyricsAtFullLyricsView()
+        } else {
+            viewModel.fullLyricsViewDismissRequest.send()
+        }
     }
 }

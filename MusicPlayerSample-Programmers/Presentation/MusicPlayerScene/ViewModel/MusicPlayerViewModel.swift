@@ -27,6 +27,8 @@ protocol MusicPlayerViewModelOutput {
     
     var currentPlayTime: TimeInterval { get }
     var currentPlayTimeSubject: PassthroughSubject<TimeInterval, Never> { get }
+    
+    var fullLyricsViewDismissRequest: PassthroughSubject<Void, Never> { get }
 }
 
 protocol MusicPlayerViewModel: MusicPlayerViewModelInput, MusicPlayerViewModelOutput {}
@@ -50,6 +52,8 @@ final class DefaultMusicPlayerViewModel: MusicPlayerViewModel {
     
     var currentPlayTime: TimeInterval { audioPlayer?.currentTime ?? 0 }
     var currentPlayTimeSubject: PassthroughSubject<TimeInterval, Never> = .init()
+    
+    var fullLyricsViewDismissRequest: PassthroughSubject<Void, Never> = .init()
     
     // MARK: - Initializers
     
