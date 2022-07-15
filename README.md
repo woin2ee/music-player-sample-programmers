@@ -1,6 +1,10 @@
 # music-player-sample-programmers
-프로그래머스 과제 테스트 연습란의 뮤직 플레이어 앱 연습 과제  
+>프로그래머스 과제 테스트 연습란의 뮤직 플레이어 앱 연습 과제  
 https://school.programmers.co.kr/skill_check_assignments/2
+
+<img src="https://img.shields.io/badge/Swift-5.6-informational"> <img src="https://img.shields.io/badge/Xcode-13.4.1-9cf">  
+<img src="https://img.shields.io/badge/pod-1.11.3-lightgrey"> <img src="https://img.shields.io/badge/Alamofire-5.6.1-critical"> <img src="https://img.shields.io/badge/SnapKit-5.6.0-green"> <img src="https://img.shields.io/badge/MarqueeLabel-4.3.0-orange">
+
 
 ## Screenshot
 
@@ -9,6 +13,9 @@ https://school.programmers.co.kr/skill_check_assignments/2
 ## Demo
 
 <img width="250" src="https://user-images.githubusercontent.com/81426024/179181730-38fc4429-ac7f-42e5-9b2d-e3cee860d8ac.gif">
+
+## Features
+- ~~기능
 
 ## Tech
 
