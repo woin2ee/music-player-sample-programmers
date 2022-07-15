@@ -100,6 +100,7 @@ final class MusicPlayerViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.musicPublisher
+            .dropFirst()
             .sink { [weak self] music in
                 self?.musicTitleLabel.text = music?.title
                 self?.musicSingerLabel.text = music?.singer
