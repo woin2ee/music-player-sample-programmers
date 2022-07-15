@@ -15,7 +15,8 @@ final class MusicPlayerViewController: UIViewController {
     private var viewModel: MusicPlayerViewModel!
     private var lyricsTableViewController: LyricsTableViewController!
     private var cancellables: Set<AnyCancellable> = []
-    private var timer: Timer?
+    private var seekBarControlTimer: Timer?
+    private var currentPlayTimeLabelControlTimer: Timer?
     
     // MARK: - UI Components
     
@@ -67,6 +68,7 @@ final class MusicPlayerViewController: UIViewController {
                 self.viewModel.didUpdateSeekBar(value: footer.seekBar.value)
                 self.lyricsTableViewController.scrollLyrics(animated: false)
                 self.lyricsTableViewController.makeCurrentLyricsBold()
+                self.updateCurrentPlayTimeLabel()
             },
             for: .valueChanged
         )
@@ -93,6 +95,7 @@ final class MusicPlayerViewController: UIViewController {
             .sink { [weak self] isPlaying in
                 self?.setButtonImage(isPlaying)
                 self?.controlSeekBar(isPlaying)
+                self?.controlCurrentPlayTimeLabel(isPlaying)
             }
             .store(in: &cancellables)
         
@@ -103,6 +106,7 @@ final class MusicPlayerViewController: UIViewController {
                 self?.albumImageView.image = music?.albumImage
                 self?.musicAlbumLabel.text = music?.albumTitle
                 self?.musicPlayerFooterView.seekBar.maximumValue = music?.duration ?? 0
+                self?.musicPlayerFooterView.finishTimeLabel.text = music?.duration.toTimeString()
             }
             .store(in: &cancellables)
         
@@ -137,7 +141,8 @@ final class MusicPlayerViewController: UIViewController {
     
     deinit {
         debugPrint("deinit : \(Self.description())")
-        timer?.invalidate()
+        seekBarControlTimer?.invalidate()
+        currentPlayTimeLabelControlTimer?.invalidate()
     }
 }
 
@@ -207,14 +212,15 @@ private extension MusicPlayerViewController {
     
     func controlSeekBar(_ isPlaying: Bool) {
         if isPlaying {
-            timer = .scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            seekBarControlTimer = .scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
                 if self.musicPlayerFooterView.seekBar.isTouchInside { return }
                 self.musicPlayerFooterView.seekBar.value = Float(self.viewModel.currentPlayTime)
             }
+            seekBarControlTimer?.tolerance = 0.1
             tuneSeekBar()
         } else {
-            timer?.invalidate()
+            seekBarControlTimer?.invalidate()
         }
     }
     
@@ -223,5 +229,23 @@ private extension MusicPlayerViewController {
         if musicPlayerFooterView.seekBar.value < Float(self.viewModel.currentPlayTime) - intervalLimit {
             musicPlayerFooterView.seekBar.value = Float(self.viewModel.currentPlayTime)
         }
+    }
+    
+    func controlCurrentPlayTimeLabel(_ isPlaying: Bool) {
+        if isPlaying {
+            currentPlayTimeLabelControlTimer = .scheduledTimer(
+                withTimeInterval: 0.5,
+                repeats: true
+            ) { [weak self] _ in
+                self?.updateCurrentPlayTimeLabel()
+            }
+            currentPlayTimeLabelControlTimer?.tolerance = 0.1
+        } else {
+            currentPlayTimeLabelControlTimer?.invalidate()
+        }
+    }
+    
+    func updateCurrentPlayTimeLabel() {
+        self.musicPlayerFooterView.currentPlayTimeLabel.text = Float(self.viewModel.currentPlayTime).toTimeString()
     }
 }
