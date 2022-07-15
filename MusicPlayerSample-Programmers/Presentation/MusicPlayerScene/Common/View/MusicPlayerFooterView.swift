@@ -26,6 +26,22 @@ final class MusicPlayerFooterView: UIView {
         return button
     }()
     
+    lazy var currentPlayTimeLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "0:00"
+        lbl.font = .systemFont(ofSize: 12, weight: .semibold)
+        lbl.textColor = .systemPurple
+        return lbl
+    }()
+    
+    lazy var finishTimeLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "0:00"
+        lbl.font = .systemFont(ofSize: 12, weight: .semibold)
+        lbl.textColor = .darkGray
+        return lbl
+    }()
+    
     // MARK: - Initializers
     
     convenience init() {
@@ -47,6 +63,8 @@ private extension MusicPlayerFooterView {
     func addSubviews() {
         self.addSubview(seekBar)
         self.addSubview(playAndPauseButton)
+        self.addSubview(currentPlayTimeLabel)
+        self.addSubview(finishTimeLabel)
     }
     
     func setupConstraints() {
@@ -59,6 +77,16 @@ private extension MusicPlayerFooterView {
         playAndPauseButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
+        }
+        
+        currentPlayTimeLabel.snp.makeConstraints { make in
+            make.top.equalTo(seekBar.snp.bottom)
+            make.left.equalToSuperview().offset(2)
+        }
+        
+        finishTimeLabel.snp.makeConstraints { make in
+            make.top.equalTo(seekBar.snp.bottom)
+            make.right.equalToSuperview().offset(-2)
         }
     }
 }
