@@ -138,6 +138,7 @@ final class MusicPlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         musicPlayerFooterView.seekBar.value = Float(viewModel.currentPlayTime)
+        musicPlayerFooterView.currentPlayTimeLabel.text = Float(viewModel.currentPlayTime).toTimeString()
     }
     
     deinit {
@@ -235,7 +236,7 @@ private extension MusicPlayerViewController {
     func controlCurrentPlayTimeLabel(_ isPlaying: Bool) {
         if isPlaying {
             currentPlayTimeLabelControlTimer = .scheduledTimer(
-                withTimeInterval: 0.5,
+                withTimeInterval: 0.2,
                 repeats: true
             ) { [weak self] _ in
                 self?.updateCurrentPlayTimeLabel()
