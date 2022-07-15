@@ -25,6 +25,7 @@ https://school.programmers.co.kr/skill_check_assignments/2
 - MVVM-C
 - Combine
 - AVFAudio
+- Programmality UI config(without Storyboard)
 
 ## Library
 
