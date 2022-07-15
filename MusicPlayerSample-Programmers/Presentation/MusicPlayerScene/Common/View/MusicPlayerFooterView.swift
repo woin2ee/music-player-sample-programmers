@@ -31,6 +31,7 @@ final class MusicPlayerFooterView: UIView {
         lbl.text = "0:00"
         lbl.font = .systemFont(ofSize: 12, weight: .semibold)
         lbl.textColor = .systemPurple
+        lbl.textAlignment = .left
         return lbl
     }()
     
@@ -39,6 +40,7 @@ final class MusicPlayerFooterView: UIView {
         lbl.text = "0:00"
         lbl.font = .systemFont(ofSize: 12, weight: .semibold)
         lbl.textColor = .darkGray
+        lbl.textAlignment = .right
         return lbl
     }()
     
