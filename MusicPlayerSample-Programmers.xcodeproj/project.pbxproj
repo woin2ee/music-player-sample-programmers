@@ -37,6 +37,7 @@
 		E87CB40A286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */; };
 		E87EE500287C34B5000120B5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EE4FF287C34B5000120B5 /* NetworkService.swift */; };
 		E87EE502287C3951000120B5 /* MusicResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EE501287C3951000120B5 /* MusicResponseDTO.swift */; };
+		E8BE6CDC2881402B0070C027 /* PlayTimeConvertToStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BE6CDB2881402B0070C027 /* PlayTimeConvertToStringTests.swift */; };
 		E8E1F3DE28802D3200D53BFF /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E1F3DD28802D3200D53BFF /* DefaultAlert.swift */; };
 		E8FB3B4B287031AE002F195D /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */; };
 		E8FB3B4E28707E8A002F195D /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */; };
@@ -99,6 +100,7 @@
 		E87CB409286DAA3C0009311F /* MusicPlayerSample_ProgrammersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSample_ProgrammersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E87EE4FF287C34B5000120B5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E87EE501287C3951000120B5 /* MusicResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicResponseDTO.swift; sourceTree = "<group>"; };
+		E8BE6CDB2881402B0070C027 /* PlayTimeConvertToStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTimeConvertToStringTests.swift; sourceTree = "<group>"; };
 		E8E1F3DD28802D3200D53BFF /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
 		E8FB3B4A287031AE002F195D /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
 		E8FB3B4D28707E8A002F195D /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			children = (
 				E811F120287D429C0058856D /* ConvertDTOTests.swift */,
 				E811F128287D5D220058856D /* LyricsTableViewTests.swift */,
+				E8BE6CDB2881402B0070C027 /* PlayTimeConvertToStringTests.swift */,
 			);
 			path = "MusicPlayerSample-ProgrammersTests";
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E811F121287D429C0058856D /* ConvertDTOTests.swift in Sources */,
+				E8BE6CDC2881402B0070C027 /* PlayTimeConvertToStringTests.swift in Sources */,
 				E811F129287D5D220058856D /* LyricsTableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
