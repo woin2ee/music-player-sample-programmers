@@ -15,7 +15,9 @@ https://school.programmers.co.kr/skill_check_assignments/2
 <img width="250" src="https://user-images.githubusercontent.com/81426024/179181730-38fc4429-ac7f-42e5-9b2d-e3cee860d8ac.gif">
 
 ## Features
-- ~~기능
+- 현재 재생중인 구간 가사 하이라이팅
+- 조작 가능한 seek bar
+- 전체 가사 화면에서 선택한 가사로 이동
 
 ## Tech
 
