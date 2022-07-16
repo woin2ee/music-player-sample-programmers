@@ -12,7 +12,7 @@ https://school.programmers.co.kr/skill_check_assignments/2
 
 ## Demo
 
-<img width="250" src="https://user-images.githubusercontent.com/81426024/179181730-38fc4429-ac7f-42e5-9b2d-e3cee860d8ac.gif">
+<img width="250" src="https://user-images.githubusercontent.com/81426024/179355428-888350c7-8192-4422-bcc3-556a88850620.gif">
 
 ## Features
 - 현재 재생중인 구간 가사 하이라이팅
