@@ -81,6 +81,24 @@ final class DefaultMusicPlayerViewModel: NSObject, MusicPlayerViewModel {
                 self.showErrorAlertRequest.send(errorMessage)
             }
         }
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(musicWillStop(_:)),
+            name: AVAudioSession.interruptionNotification,
+            object: nil
+        )
+    }
+    
+    @objc private func musicWillStop(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let interruptionTypeRaw =  userInfo[AVAudioSessionInterruptionTypeKey],
+            let interruptionType = AVAudioSession.InterruptionType.init(rawValue: interruptionTypeRaw as! UInt),
+            interruptionType == .began
+        else { return }
+        
+        self.isPlaying = false
     }
     
     // MARK: - Input
