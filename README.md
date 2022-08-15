@@ -18,6 +18,7 @@ https://school.programmers.co.kr/skill_check_assignments/2
 - 현재 재생중인 구간 가사 하이라이팅
 - 조작 가능한 seek bar
 - 전체 가사 화면에서 선택한 가사로 이동
+- Background 음악 재생
 
 ## Tech
 
