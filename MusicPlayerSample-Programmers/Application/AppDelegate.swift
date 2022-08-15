@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFAudio
+import OSLog
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.setCategory(.playback)
+        } catch {
+            let subsystem = Bundle.main.bundleIdentifier!
+            let category = "audio"
+            Logger.init(subsystem: subsystem, category: category).error("Failed to set audio session category.")
+        }
+        
         return true
     }
 
